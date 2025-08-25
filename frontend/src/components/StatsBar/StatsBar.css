@@ -1,0 +1,46 @@
+/* --- BARRA DE ESTATÍSTICAS --- */
+.stats-bar {
+  /* --- Adicionar ou Modificar estas propriedades --- */
+  position: absolute; /* Faz a barra flutuar */
+  bottom: 0; /* Gruda na parte de baixo do .hero-section */
+  left: 50%; /* Centraliza o ponto de início no meio da tela */
+  transform: translate(-50%, 50%); /* O truque mágico! */
+  /* -50% no eixo X: Puxa para a esquerda para centralizar perfeitamente */
+  /* 50% no eixo Y: Empurra para baixo pela metade da sua própria altura */
+
+  /* --- Manter estas propriedades --- */
+  display: flex;
+  justify-content: space-around;
+  width: 90%; /* Definimos uma largura para a barra, como na imagem */
+  max-width: 1200px; /* E uma largura máxima */
+  background-color: #121212;
+  padding: 2.5rem 1rem;
+  z-index: 10; /* Aumentamos o z-index para garantir que fique na frente de tudo */
+  border-radius: 10px; /* Adicionando bordas arredondadas como na imagem */
+  box-sizing: border-box;
+}
+
+.stat-item {
+  color: white;
+  text-align: center;
+  padding: 0 1rem; /* Espaçamento para não colar os itens */
+  min-width: 150px; /* Largura mínima para cada item */
+  margin-bottom: 1rem; /* Espaçamento inferior para telas pequenas */
+}
+
+.stat-number {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3rem); /* Fonte responsiva */
+  font-weight: 700; /* Negrito */
+  color: #ffffff;
+}
+
+.stat-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  color: #a0a0a0; /* Cinza claro para descrição */
+  text-transform: uppercase; /* TUDO EM MAIÚSCULO */
+  letter-spacing: 1.5px; /* Espaçamento entre as letras para um look refinado */
+}

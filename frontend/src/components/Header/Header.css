@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+
+header.main-header {
+  display: flex;
+  background-color: #1d1d1b;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  padding-inline: 5%;
+  padding-block: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 200; /* Negrito */
+  color: #eee; /* Cor escura para o texto */
+  text-decoration: none;
+  letter-spacing: 7px;
+  font-family: 'Macondo', cursive;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem; /* Aumentei um pouco o espaço */
+  list-style: none;
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove paddings padrão */
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 550; /* Um peso de fonte semi-negrito */
+  color: #fff; /* Cinza escuro para boa legibilidade */
+  position: relative; /* Necessário para o efeito de sublinhado animado */
+  padding-bottom: 5px; /* Espaço para a linha abaixo */
+  transition: color 0.5s ease; /* Transição suave da cor */
+}
+
+nav ul li a:hover {
+  color: orange;
+}
+
+.header-actions {
+  padding: 15px;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  background: #1d1d1b;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.header-actions a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header-actions:hover {
+  transform: scale(1.05);
+}
+
+/* ESTILO ADICIONAL CORRIGIDO: SÓ SERÁ APLICADO NA HOME PAGE */
+header.main-header.transparent-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  box-shadow: none;
+
+  /* --- CORREÇÃO 1: GARANTIR QUE FIQUE NA FRENTE DE TUDO --- */
+  z-index: 1000; /* Número alto para garantir que seja a camada superior */
+}
+
+/* --- CORREÇÃO 2: GARANTIR QUE O TEXTO SEJA LEGÍVEL --- */
+header.main-header.transparent-header .logo a,
+header.main-header.transparent-header nav ul li a,
+header.main-header.transparent-header .header-actions a {
+  /* Adiciona uma sombra para destacar o texto da imagem de fundo */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Ajuste no botão para a versão transparente */
+header.main-header.transparent-header .header-actions {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.8);
+}
