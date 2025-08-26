@@ -52,6 +52,7 @@ nav ul li a:hover {
   transition:
     transform 0.3s ease,
     background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .header-actions a {

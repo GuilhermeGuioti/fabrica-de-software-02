@@ -10,7 +10,7 @@ function Header() {
   return (
     <header className={headerClasses}>
       <div className="logo">
-        <Link to="/">BOMJESUS</Link>
+        <Link to="/">BOMOVEL</Link>
       </div>
       <nav>
         <ul>
