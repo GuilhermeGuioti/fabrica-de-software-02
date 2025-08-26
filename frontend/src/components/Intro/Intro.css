@@ -1,0 +1,135 @@
+/* Arquivo: Intro.css (Estratégia Híbrida) */
+
+/* --- ESTRUTURA PRINCIPAL E LAYOUT --- */
+
+.intro-section {
+  padding: 10rem;
+  overflow: hidden;
+}
+
+.intro-container {
+  display: flex;
+  align-items: center;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 3.75rem;
+}
+
+.intro-text-column {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ESTILOS DE TEXTO --- */
+
+.intro-text-column h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.intro-text-column h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #555;
+  margin-top: 1rem;
+}
+
+.intro-text-column p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin-top: 1.5625rem;
+  max-width: 500px;
+}
+
+/* --- DESTAQUES E BOTÃO --- */
+
+.intro-highlights {
+  display: flex;
+  gap: 3.125rem;
+  margin-top: 2.5rem;
+  padding-bottom: 1.5625rem;
+  border-bottom: 1px solid #c5d1c7;
+  align-self: flex-start;
+}
+
+.intro-highlights span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+.intro-cta-button {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #252525;
+  color: #fff;
+  border: none;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+  margin-top: 2.5rem;
+  align-self: flex-start;
+}
+
+.intro-cta-button:hover {
+  transform: scale(1.05);
+}
+
+/* --- ESTRUTURA PRINCIPAL E LAYOUT --- */
+
+.intro-image-column {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-image-column img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+}
+
+/* --- ADICIONANDO AS "FIRULAS" COM PSEUDO-ELEMENTOS --- */
+
+.intro-image-column::before,
+.intro-image-column::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.intro-image-column::before {
+  background-color: #d3c1ad;
+  width: 90%;
+  height: 95%;
+  top: -30px;
+  left: -30px;
+}
+
+.intro-image-column::after {
+  background-color: #5c4f4a;
+  width: 80%;
+  height: 85%;
+  bottom: -40px;
+  right: -40px;
+}
