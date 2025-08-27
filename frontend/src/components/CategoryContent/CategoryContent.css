@@ -1,0 +1,38 @@
+.category-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.icon-crow {
+  color: #2c2c2c;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  padding-bottom: 1rem;
+}
+
+.category-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.category-title h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #555;
+  margin-top: 1rem;
+}
+
+.category-card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px; /* Adicionado para dar espaço entre os cards */
+  max-width: 1100px; /* Sua largura máxima */
+  margin: 0 auto; /* Esta linha centraliza o container */
+  padding: 30px; /* Opcional: para dar um respiro interno */
+}

@@ -1,0 +1,58 @@
+.card {
+  border: 2px solid #252525;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  width: 450px;
+  height: 450px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px; /* Altura fixa para a imagem */
+  object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+  border-radius: 8px;
+}
+
+.card-content {
+  padding: 20px;
+  flex-grow: 1; /* Faz esta área crescer para ocupar o espaço */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empurra o botão para baixo */
+}
+
+.card-title {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-family: 'Playfair Display', serif;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-button {
+  background-color: #252525;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px; /* Bordas bem arredondadas para o botão */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  align-self: center; /* Centraliza o botão no eixo cruzado */
+}
+
+.card-button:hover {
+  transform: scale(1.05);
+}
