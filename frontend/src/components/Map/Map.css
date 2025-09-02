@@ -1,0 +1,19 @@
+.map-container {
+  width: 100%;
+  /* max-width: 900px; */
+  height: 400px; /* Altura do mapa, ajuste conforme necessário */
+  margin: 2rem auto; /* Centraliza o mapa na página */
+
+  /* Estilos para o visual da imagem */
+  border-radius: 16px; /* Bordas arredondadas */
+  overflow: hidden; /* Garante que o iframe dentro também tenha as bordas cortadas */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra suave para dar profundidade */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Opcional: uma borda sutil */
+}
+
+/* Garante que o iframe preencha o container perfeitamente */
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove qualquer borda padrão do iframe */
+}
