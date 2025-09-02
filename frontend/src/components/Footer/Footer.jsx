@@ -16,27 +16,27 @@ function Footer() {
         </div>
         <div className="footer-right">
           <i>
-            <a>
+            <a href='https://www.instagram.com/park.moveis?igsh=MTl4YngzaGdydTZsNw==' target='_blank'>
               <FaInstagram />
             </a>
           </i>
-          <i>
+          {/* <i>
             <a>
               <FaFacebookF />
             </a>
-          </i>
+          </i> */}
           <i>
-            <a>
+            <a href='https://wa.me/5516991480055' target='_blank'>
               <FaWhatsapp />
             </a>
           </i>
           <i>
-            <a>
+            <a href='mailto:parkmoveis2014@hotmail.com' target='_blank'>
               <MdOutlineEmail />
             </a>
           </i>
           <i>
-            <a>
+            <a href='tel:+5516991480055' target='_blank'>
               <BsFillTelephoneFill />
             </a>
           </i>

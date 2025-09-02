@@ -6,19 +6,19 @@ function StatsBar() {
   return (
     <div className="stats-bar">
       <div className="stat-item">
-        <span className="stat-number">35K</span>
+        <span className="stat-number">15K</span>
         <p className="stat-description">Lares Impactados</p>
       </div>
       <div className="stat-item">
-        <span className="stat-number">48K</span>
+        <span className="stat-number">5K</span>
         <p className="stat-description">Clientes Satisfeitos</p>
       </div>
       <div className="stat-item">
-        <span className="stat-number">4.8</span>
+        <span className="stat-number">4.7</span>
         <p className="stat-description">Google</p>
       </div>
       <div className="stat-item">
-        <span className="stat-number">65+</span>
+        <span className="stat-number">10+</span>
         <p className="stat-description">Anos de Experiência</p>
       </div>
     </div>

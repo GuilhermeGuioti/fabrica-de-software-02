@@ -1,9 +1,8 @@
-/* Arquivo: Intro.css (Estratégia Híbrida) */
-
 /* --- ESTRUTURA PRINCIPAL E LAYOUT --- */
 
 .intro-section {
-  padding: 10rem;
+  padding-top: 10rem;
+  padding-bottom: 7rem;
   overflow: hidden;
 }
 
