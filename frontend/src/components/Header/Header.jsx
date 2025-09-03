@@ -15,6 +15,9 @@ function Header() {
       <nav>
         <ul>
           <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
             <Link to="/catalogo">Catálogo</Link>
           </li>
           <li>
@@ -23,18 +26,16 @@ function Header() {
           <li>
             <Link to="/contato">Contato</Link>
           </li>
-          <li>
-            <Link to="/futuro">Futuro</Link>
-          </li>
         </ul>
       </nav>
       <div className="header-actions">
-        <Link to="/contato" className="contact-button">
+        <a href="https://wa.me/5516991480055" target="_blank">
           Fale Conosco
-        </Link>
+        </a>
       </div>
     </header>
   );
 }
 
 export default Header;
+

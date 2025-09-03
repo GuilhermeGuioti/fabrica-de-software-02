@@ -1,14 +1,9 @@
 /* --- BARRA DE ESTATÍSTICAS --- */
 .stats-bar {
-  /* --- Adicionar ou Modificar estas propriedades --- */
   position: absolute; /* Faz a barra flutuar */
   bottom: 0; /* Gruda na parte de baixo do .hero-section */
   left: 50%; /* Centraliza o ponto de início no meio da tela */
   transform: translate(-50%, 50%); /* O truque mágico! */
-  /* -50% no eixo X: Puxa para a esquerda para centralizar perfeitamente */
-  /* 50% no eixo Y: Empurra para baixo pela metade da sua própria altura */
-
-  /* --- Manter estas propriedades --- */
   display: flex;
   justify-content: space-around;
   width: 90%; /* Definimos uma largura para a barra, como na imagem */

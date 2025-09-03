@@ -2,6 +2,7 @@
 
 .hero-second-container {
   background: radial-gradient(ellipse at center, #0d0c0a, #663213);
+  /* background: radial-gradient(ellipse at center, #121212, #424243); */
   color: #ffffff;
   width: 100%;
   min-height: 25vh;
