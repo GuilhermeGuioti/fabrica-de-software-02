@@ -54,6 +54,7 @@
   color: #eee;
   background:
     radial-gradient(circle at top right, #7a3b18 0%, transparent 60%), #0a0a0a;
+  /* radial-gradient(circle at top right, #121212 0%, transparent 60%), #424243; */
   transition: transform 0.3s ease;
 }
 

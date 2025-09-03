@@ -1,0 +1,75 @@
+/* --- Seção de Valores --- */
+.values-section {
+  margin-top: 5rem;
+}
+
+.values-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Espaçamento entre os cards */
+}
+
+/* --- Card Individual --- */
+.value-card {
+  /* background-color: #2d3748; */
+  background:
+    radial-gradient(circle at top right, #7a3b18 0%, transparent 60%), #0a0a0a;
+  color: #eee;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  flex: 1; /* Faz com que os cards ocupem o mesmo espaço */
+  max-width: 350px; /* Largura máxima para cada card */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Efeito de hover para dar interatividade */
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Círculo do Ícone --- */
+.icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem auto; /* Centraliza e adiciona espaço abaixo */
+  border: 2px solid #ffffff; /* Borda branca no círculo */
+  border-radius: 50%; /* Transforma o div em um círculo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo do ícone SVG dentro do círculo */
+.icon-wrapper svg {
+  font-size: 2.5rem; /* Tamanho do ícone */
+  color: #eee;
+}
+
+/* --- Textos do Card --- */
+.value-card h3 {
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 1.5px; /* Espaçamento entre as letras */
+  margin-bottom: 1rem;
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #b0b0b0;
+}
+
+/* --- Responsividade para Telas Menores --- */
+@media (max-width: 992px) {
+  .values-container {
+    flex-direction: column; /* Empilha os cards verticalmente */
+    align-items: center; /* Centraliza os cards empilhados */
+  }
+}

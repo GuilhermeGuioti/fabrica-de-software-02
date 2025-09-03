@@ -32,8 +32,8 @@
 }
 
 .hero-subtitle {
-  font-family: 'Montserrat', sans-serif; /* Fonte limpa para o subtítulo */
-  font-size: 1.2rem;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-size: 1.1rem;
   line-height: 1.6;
   max-width: 550px;
   margin: 0 auto 2.5rem;
@@ -41,7 +41,6 @@
 }
 
 .hero-button {
-  font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
   font-weight: bold;
   text-transform: uppercase;
