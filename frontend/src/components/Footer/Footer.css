@@ -1,68 +1,163 @@
+/* Estilo geral do Footer */
 footer {
-  position: relative;
-  display: flex;
-  flex-direction: column; /* deixa os filhos em coluna */
-  align-items: center; /* centraliza horizontalmente */
-  justify-content: center;
-  padding-block: 3rem;
-  padding-inline: 15rem;
+  width: 100%;
+  padding: 4rem 10% 2rem 10%; /* Padding vertical e horizontal responsivo */
   background-color: #121212;
   color: #fff;
+  box-sizing: border-box; /* Garante que padding não afete a largura total */
 }
 
 .footer-content {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Distribui as colunas igualmente */
+  align-items: flex-start; /* Alinha as colunas pelo topo */
+  flex-wrap: wrap; /* Permite que as colunas quebrem para a linha de baixo em telas pequenas */
+  gap: 2rem; /* Espaçamento entre as colunas */
+  margin-bottom: 3rem; /* Espaço antes da linha inferior */
 }
 
-.footer-left h2 {
-  font-size: 1.8rem;
-  font-weight: 200; /* Negrito */
-  color: #eee; /* Cor escura para o texto */
-  letter-spacing: 7px;
-  font-family: 'Macondo', cursive;
-}
-
-.footer-right {
+/* Estilo para cada coluna do footer */
+.footer-column {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 1rem; /* Espaçamento entre os itens dentro de uma coluna */
+  flex: 1; /* Faz com que as colunas tentem ocupar o mesmo espaço */
+  min-width: 220px; /* Largura mínima para evitar que fiquem muito espremidas */
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #f0f0f0;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.footer-column p {
+  color: #aaa;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Ícones de redes sociais */
+.footer-logos {
+  display: flex;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
-.footer-right i {
-  padding: 10px;
-  /* border: 1px solid #eee; */
-  border-radius: 50px;
-  background-color: #252525;
-  cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
+.logo-footer a {
+  font-size: 2rem;
 }
 
-.footer-right i a {
+.footer-logos a {
   display: flex;
   align-items: center;
   justify-content: center;
   color: #eee;
+  background-color: #252525;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
-.footer-right i:hover {
-  transform: scale(1.15);
+.footer-logos a:hover {
+  transform: scale(1.1);
+  background-color: #ff7618; /* Cor de destaque (ex: laranja) */
 }
 
-.footer-right i:hover a {
-  color: orange;
+/* Listas de links e contatos */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
-.footer-bottom {
-  position: absolute;
-  bottom: 5px; /* gruda no fundo */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 14px;
+.footer-links li a,
+.footer-links li span {
   color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: #ff7618; /* Cor de destaque */
+}
+
+/* Formulário de inscrição CORRIGIDO */
+.subscribe-form {
+  display: flex;
+  /* Definimos uma altura fixa para o container, que será a referência para os filhos. */
+  height: 48px;
+  border-radius: 8px;
+  overflow: hidden; /* Essencial para manter as bordas arredondadas dos filhos */
+  background-color: #252525; /* A cor de fundo vai para o pai */
+}
+
+.subscribe-form input {
+  flex-grow: 1; /* Faz o input ocupar todo o espaço restante */
+  height: 100%; /* Ocupa 100% da altura do pai */
+  padding: 0 1rem; /* Apenas padding horizontal para o texto */
+  border: none;
+  background-color: transparent; /* O fundo é transparente, pois já está no pai */
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.subscribe-form input:focus {
+  outline: none;
+  background-color: #333; /* Efeito de foco sutil */
+}
+
+.subscribe-form button {
+  /* Usamos flexbox para centralizar perfeitamente o ícone */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%; /* Ocupa 100% da altura do pai */
+  width: 50px; /* Largura fixa para o botão */
+  flex-shrink: 0; /* Impede que o botão seja "espremido" */
+
+  border: none;
+  background-color: #ff7618; /* Usando a cor laranja que você definiu anteriormente */
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem; /* Pode ajustar o tamanho do ícone */
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+  background-color: #e66a15;
+}
+
+/* Linha inferior com copyright */
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Media Query para Responsividade */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Empilha as colunas em telas menores */
+    align-items: center; /* Centraliza as colunas */
+    text-align: center;
+  }
+
+  .footer-column {
+    align-items: center; /* Centraliza o conteúdo de cada coluna */
+  }
 }
