@@ -10,7 +10,6 @@ function Map({ embedUrl }) {
         height="100%"
         style={{ border: 0 }}
         allowFullScreen=""
-        loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         title="Localização da Loja no Google Maps"
       ></iframe>

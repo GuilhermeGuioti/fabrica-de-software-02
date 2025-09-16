@@ -1,7 +1,8 @@
 // 1. Importar os hooks do React e o cliente Supabase
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../../supabaseClient.jsx'; // Verifique se o caminho está correto
+import { supabase } from '../../supabaseClient.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
 
 // Seus imports de ícones e CSS
 import './AuthPage.css';
@@ -14,13 +15,14 @@ const AuthPage = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); // Hook para redirecionar o usuário
+  const { login } = useAuth();
 
   // 3. Criar a função que lida com o login
   const handleLogin = async (event) => {
     event.preventDefault(); // Impede que a página recarregue
     setLoading(true);
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
     });
@@ -28,10 +30,13 @@ const AuthPage = () => {
     if (error) {
       alert(error.error_description || error.message);
     } else {
+      login(data.user);
       alert('Login realizado com sucesso!');
-      navigate('/catalogo'); // Redireciona para a página do catálogo
+      navigate('/admin');
     }
     setLoading(false);
+    setPassword('');
+    setEmail('');
   };
 
   return (

@@ -26,9 +26,6 @@ function Header() {
           <li>
             <Link to="/contato">Contato</Link>
           </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
         </ul>
       </nav>
       <div className="header-actions">

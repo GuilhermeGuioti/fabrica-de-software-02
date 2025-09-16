@@ -1,0 +1,90 @@
+/* Container geral da página */
+.catalog-page {
+  /* Se você tiver uma cor de fundo geral para o site, coloque aqui */
+  background-color: #f0f2f5; /* Um cinza bem claro para o fundo da página */
+}
+
+/* O banner marrom que você já tem */
+.catalog-banner {
+  background-color: #4a2c1a; /* Seu tom de marrom */
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  height: 300px; /* Aumentar a altura para dar espaço para a sobreposição */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.catalog-banner h1 {
+  font-size: 4rem;
+}
+
+/* O container branco flutuante */
+.catalog-container {
+  max-width: 1400px;
+  margin: 0 auto; /* Centraliza o container */
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  /* A MÁGICA DA SOBREPOSIÇÃO */
+  margin-top: -100px; /* Puxa o container para cima */
+  position: relative; /* Garante que ele fique acima de outros elementos */
+  z-index: 10;
+}
+
+/* O novo cabeçalho com título e busca */
+.catalog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.catalog-header__title h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.catalog-header__title p {
+  margin: 0;
+  color: #6c757d;
+}
+
+.catalog-header__search {
+  display: flex;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.catalog-header__search input {
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  outline: none;
+}
+.catalog-header__search button {
+  background-color: #212529; /* Preto/Cinza escuro */
+  color: white;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+/* Estilos antigos que continuam válidos */
+.catalog-main-content {
+  display: flex;
+  gap: 30px;
+}
+.catalog-page__filters {
+  flex-basis: 250px;
+  flex-shrink: 0;
+}
+.catalog-page__grid {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
