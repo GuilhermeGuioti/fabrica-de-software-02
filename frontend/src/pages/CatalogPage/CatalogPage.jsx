@@ -32,14 +32,47 @@ const CatalogPage = () => {
 
         {/* O conteúdo principal que já tínhamos */}
         <main className="catalog-main-content">
-          <aside className="catalog-page__filters">
-            <h3>Categorias</h3>
-            <ul>
-              <li>Salas de Jantar</li>
-              <li>Salas de Estar</li>
-              <li>Quartos</li>
-              <li>Cozinhas</li>
-            </ul>
+          <aside className="filters-aside">
+            {/* --- Seção de Categorias --- */}
+            <div className="filter-group">
+              <h4>Categorias</h4>
+              <ul className="category-list">
+                <li><a href="#">Salas de Jantar</a></li>
+                <li><a href="#" className="active">Salas de Estar</a></li>
+                <li><a href="#">Quartos</a></li>
+                <li><a href="#">Cozinhas</a></li>
+                <li><a href="#">Escritório</a></li>
+              </ul>
+            </div>
+
+            {/* --- Seção de Faixa de Preço (Exemplo) --- */}
+            <div className="filter-group">
+              <h4>Faixa de Preço</h4>
+              <div className="price-range-input">
+                <input type="range" min="50" max="5000" defaultValue="2500" />
+                <div className="price-display">
+                  <span>R$ 50</span>
+                  <span>R$ 5000</span>
+                </div>
+              </div>
+            </div>
+
+            {/* --- Seção de Cores (Exemplo) --- */}
+            <div className="filter-group">
+              <h4>Cores</h4>
+              <div className="color-swatches">
+                <span className="color-swatch" style={{ backgroundColor: '#8B4513' }} title="Marrom"></span>
+                <span className="color-swatch" style={{ backgroundColor: '#36454F' }} title="Cinza Chumbo"></span>
+                <span className="color-swatch" style={{ backgroundColor: '#F5F5DC' }} title="Bege"></span>
+                <span className="color-swatch active" style={{ backgroundColor: '#000000' }} title="Preto"></span>
+                <span className="color-swatch" style={{ backgroundColor: '#FFFFFF' }} title="Branco"></span>
+              </div>
+            </div>
+            
+            {/* --- Botão de Ação --- */}
+            <div className="filter-actions">
+                <button className="filter-button">Aplicar Filtros</button>
+            </div>
           </aside>
 
           <section className="catalog-page__grid">
