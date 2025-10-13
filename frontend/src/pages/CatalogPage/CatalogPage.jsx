@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductCard from '../../components/ProductCard/ProductCard.jsx';
+import { useProdutos } from '../../hooks/useProdutos.jsx';
 import { mockProdutos } from '../../data/mockProdutos.js';
 import './CatalogPage.css';
 
@@ -8,6 +9,12 @@ import { FaSearch } from 'react-icons/fa';
 import HeroSecond from '../../components/HeroSecond/HeroSecond.jsx';
 
 const CatalogPage = () => {
+  const { produtos, loading } = useProdutos();
+
+  if (loading) {
+    return <p>Carregando catálogo...</p>;
+  }
+
   return (
     // O container geral da página agora só serve para o alinhamento
     <div className="catalog-page">
@@ -32,7 +39,7 @@ const CatalogPage = () => {
 
         <main className="catalog-main-content">
           <section className="catalog-page__grid">
-            {mockProdutos.map((produto) => (
+            {produtos.map((produto) => (
               <ProductCard
                 key={produto.id}
                 imagemUrl={produto.imagemUrl}
