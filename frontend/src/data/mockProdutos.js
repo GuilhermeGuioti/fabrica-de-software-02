@@ -47,4 +47,20 @@ export const mockProdutos = [
     dimensoes: 'Cabeceira Estofada | 1.60m x 2.00m',
     preco: 'R$ 1.899,90',
   },
+  {
+    id: 6,
+    imagemUrl: 'https://placehold.co/400x400/333333/FFF?text=Cama+Queen',
+    categoria: 'Quarto',
+    nome: 'Cama Queen Size Serena',
+    dimensoes: 'Cabeceira Estofada | 1.60m x 2.00m',
+    preco: 'R$ 1.899,90',
+  },
+  {
+    id: 6,
+    imagemUrl: 'https://placehold.co/400x400/333333/FFF?text=Cama+Queen',
+    categoria: 'Quarto',
+    nome: 'Cama Queen Size Serena',
+    dimensoes: 'Cabeceira Estofada | 1.60m x 2.00m',
+    preco: 'R$ 1.899,90',
+  }
 ];

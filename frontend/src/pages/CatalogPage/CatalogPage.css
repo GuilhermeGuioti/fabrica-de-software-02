@@ -65,12 +65,15 @@
   font-size: 1rem;
   outline: none;
 }
-.catalog-header__search button {
-  background-color: #212529; /* Preto/Cinza escuro */
+.catalog-header__search .btn-search {
   color: white;
   border: none;
   padding: 0 15px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8B4513;
 }
 
 /* Estilos antigos que continuam válidos */
@@ -87,124 +90,4 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 25px;
-}
-
-/* --- Estilo Principal do Aside de Filtros --- */
-.filters-aside {
-  background-color: #fdfdfd;
-  padding: 25px 20px;
-  border-radius: 8px;
-  border: 1px solid #e9e9e9;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  align-self: flex-start; /* Impede que o aside estique verticalmente */
-}
-
-/* --- Estilo dos Grupos de Filtro (Categorias, Preço, etc.) --- */
-.filter-group {
-  padding-bottom: 25px;
-  margin-bottom: 25px;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.filter-group:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.filter-group h4 {
-  font-size: 1.1rem;
-  color: #333;
-  margin: 0 0 15px 0;
-  font-weight: 600;
-}
-
-/* --- Lista de Categorias --- */
-.category-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.category-list li a {
-  display: block;
-  text-decoration: none;
-  color: #555;
-  padding: 10px 15px;
-  border-radius: 6px;
-  margin-bottom: 5px;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.category-list li a:hover {
-  background-color: #f4f4f4;
-  color: #111;
-}
-
-/* Estilo para um item ativo na lista de categorias */
-.category-list li a.active {
-  background-color: #8B4513; /* Um tom de marrom para combinar com móveis */
-  color: #fff;
-  font-weight: 500;
-}
-
-/* --- Filtro de Faixa de Preço --- */
-.price-range-input input[type="range"] {
-  width: 100%;
-  cursor: pointer;
-}
-
-.price-display {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
-  font-size: 0.85rem;
-  color: #777;
-}
-
-/* --- Filtro de Cores --- */
-.color-swatches {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.color-swatch {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid #e0e0e0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.color-swatch:hover {
-  transform: scale(1.1);
-}
-
-/* Estilo para a cor ativa/selecionada */
-.color-swatch.active {
-  box-shadow: 0 0 0 3px #8B4513;
-  border-color: #fff;
-}
-
-/* --- Botão de Ação --- */
-.filter-actions {
-    margin-top: 25px;
-}
-.filter-button {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.filter-button:hover {
-  background-color: #1a1a1a;
 }
