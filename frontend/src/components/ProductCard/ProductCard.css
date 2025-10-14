@@ -1,126 +1,118 @@
 /* =================================================================
-   NOVO DESIGN DO CARD DE PRODUTO - Versão Refinada
+   DESIGN DO CARD - Com a paleta de cores da imagem fornecida
    ================================================================= */
 
-.product-card {
-  background-color: #ffffff; /* Fundo branco puro para um visual mais limpo */
-  border: 1px solid #e9ecef; /* Borda cinza bem clara e sutil */
-  border-radius: 12px;
-  font-family: 'Poppins', sans-serif;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+/* A fonte 'Poppins' já está sendo usada */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-  /* Essencial para o layout interno funcionar corretamente */
+.product-card {
+  background-color: #ffffff; /* Fundo branco puro, como na imagem */
+  border-radius: 16px;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid #e0e0e0; /* Borda cinza muito clara */
+  
+  /* Sombra sutil, levemente mais escura para contraste com o fundo branco */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
+  
+  transition:
+    transform 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+  
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08); /* Sombra mais pronunciada no hover */
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais visível no hover */
 }
 
-/* --- IMAGEM E EFEITO DE HOVER --- */
+/* --- IMAGEM --- */
 
 .product-card__image-container {
   position: relative;
-  overflow: hidden; /* Esconde o que "vazar" da imagem durante o zoom */
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
 }
 
 .product-card__image {
   width: 100%;
-  height: 220px; /* Um pouco mais de altura para a imagem */
+  height: 230px;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease; /* Transição suave para o efeito de zoom */
+  transition: opacity 0.3s ease;
 }
 
-/* Efeito de zoom na imagem ao passar o mouse sobre o CARD */
 .product-card:hover .product-card__image {
-  transform: scale(1.05);
+  opacity: 1; /* Nenhuma mudança de opacidade no hover, para manter clean */
 }
 
 .product-card__category-tag {
   position: absolute;
-  top: 15px;
-  right: 15px; /* Movido para a esquerda para combinar com o novo alinhamento */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Fundo branco semitransparente */
-  backdrop-filter: blur(
-    5px
-  ); /* Efeito de vidro fosco (funciona em navegadores modernos) */
-  color: #212529; /* Texto escuro */
-  padding: 5px 12px;
+  top: 16px;
+  left: 16px;
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semitransparente */
+  backdrop-filter: blur(5px);
+  color: #333333; /* Cor de texto padrão, preto/grafite */
+  padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
-  border: 1px solid #e9ecef;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* --- ÁREA DE INFORMAÇÕES --- */
 
 .product-card__info {
-  /* ANTES: text-align: center; AGORA: text-align: left; */
   text-align: left;
-
-  padding: 20px; /* Mais espaçamento interno */
-
-  /* Flexbox para o layout interno */
-  flex-grow: 1; /* Faz esta área ocupar o espaço vertical restante */
+  padding: 24px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
 .product-card__name {
-  font-size: 1.15rem; /* Um pouco maior */
-  font-weight: 600;
-  margin: 0 0 5px 0; /* Espaçamento ajustado */
-  color: #212529; /* Cor principal do texto */
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #212529; /* Cor principal de texto (preto/grafite), como na imagem */
 }
 
 .product-card__dimensions {
-  font-size: 0.8rem;
-  color: #888; /* Cinza mais claro para informação secundária */
-  margin: 0 0 15px 0; /* Mais margem inferior */
-  min-height: 30px; /* Garante uma altura mínima para alinhar os cards */
+  font-size: 0.85rem;
+  color: #6c757d; /* Cor de texto secundária (cinza), como na imagem */
+  margin: 0 0 16px 0;
+  min-height: 20px;
 }
 
 .product-card__price {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #212529;
-  margin: 0 0 20px 0; /* Aumenta a margem para o botão */
+  color: #212529; /* Cor principal de texto (preto/grafite), como na imagem */
+  margin: 0 0 24px 0;
 }
 
-/* --- BOTÃO --- */
+/* --- BOTÃO SUTIL COM AS CORES DA IMAGEM --- */
 
 .product-card__button {
-  width: 100%;
-  /* align-self: flex-end; */
-  padding: 12px;
-  background-color: #343a40; /* Um cinza bem escuro, mais neutro e elegante */
-  color: #ffffff;
+  width: auto;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 8px 0;
+  background-color: transparent;
+  
+  color: #333333; /* Cor de texto padrão (preto/grafite) */
+  
   border: none;
   border-radius: 8px;
-  font-size: 0.9rem; /* Levemente menor para mais sofisticação */
-  font-weight: bold;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
-
-  /* O TRUQUE para alinhar o botão sempre ao fundo */
-  margin-top: auto;
+  transition: all 0.2s ease;
 }
 
 .product-card__button:hover {
-  background-color: #d98e3d; /* No hover, ele revela a cor da sua marca! */
-  transform: scale(1.02);
+  background-color: #5D4037; /* Cor de destaque (marrom/chocolate), como na imagem */
+  color: #ffffff; /* Texto branco no hover do botão */
+  padding: 8px 20px;
+  box-shadow: 0 4px 15px rgba(93, 64, 55, 0.2); /* Sombra para o botão preenchido */
 }
