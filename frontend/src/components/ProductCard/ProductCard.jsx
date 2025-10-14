@@ -1,8 +1,8 @@
 import React from 'react';
 import './ProductCard.css';
+import { Link } from 'react-router-dom';
 
-
-const ProductCard = ({ imagemUrl, categoria, nome, dimensoes, preco }) => {
+const ProductCard = ({ imagemUrl, categoria, nome, dimensoes, preco, id }) => {
 
   const formatarPreco = (valor) => {
     const numero = Number(valor);
@@ -29,7 +29,9 @@ const ProductCard = ({ imagemUrl, categoria, nome, dimensoes, preco }) => {
         
         <p className="product-card__price">{formatarPreco(preco)}</p>
         
-        <button className="product-card__button">Ver Detalhes</button>
+        <Link to={`/produto/${id}`} className="product-card__button">
+          Ver Detalhes
+        </Link>
       </div>
     </div>
   );

@@ -26,7 +26,6 @@ export function useProdutos() {
       
       const produtosFormatados = data.map(produto => ({
         id: produto.id,
-        // Procura a imagem marcada como principal, se não achar, usa a primeira da lista
         imagemUrl: produto.imagensprodutos.find(img => img.is_principal)?.url_imagem || produto.ImagensProdutos[0]?.url_imagem,
         categoria: produto.categorias.nome,
         nome: produto.nome,

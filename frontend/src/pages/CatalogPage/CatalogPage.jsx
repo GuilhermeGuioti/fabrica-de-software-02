@@ -47,6 +47,7 @@ const CatalogPage = () => {
                 nome={produto.nome}
                 dimensoes={produto.dimensoes}
                 preco={produto.preco}
+                id = {produto.id}
               />
             ))}
           </section>
