@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient.jsx';
 
 export function useProdutos() {
-  const [produtos, setProdutos] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,22 +24,21 @@ export function useProdutos() {
         return;
       }
       
-      const produtosFormatados = data.map(produto => ({
-        id: produto.id,
-        imagemUrl: produto.imagensprodutos.find(img => img.is_principal)?.url_imagem || produto.ImagensProdutos[0]?.url_imagem,
-        categoria: produto.categorias.nome,
-        nome: produto.nome,
-        dimensoes: produto.descricao_curta,
-        preco: produto.preco
+      const formattedProducts = data.map(product => ({
+        id: product.id,
+        imageUrl: product.imagensprodutos.find(img => img.is_principal)?.url_imagem || product.ImagensProdutos[0]?.url_imagem,
+        category: product.categorias.nome,
+        name: product.nome,
+        dimensions: product.descricao_curta,
+        price: product.preco
       }));
       
-      setProdutos(produtosFormatados);
+      setProducts(formattedProducts);
       setLoading(false);
     }
 
     getProdutos();
   }, []);
 
-  // O hook retorna o estado que o componente precisa
-  return { produtos, loading };
+  return { products, loading };
 }
