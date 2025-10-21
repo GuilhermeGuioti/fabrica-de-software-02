@@ -1,20 +1,19 @@
-/* --- Mensagens de Carregamento/Erro (Tela Cheia) --- */
+/* --- Mensagens de Carregamento/Erro --- */
 .loading-overlay, .error-overlay {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh; /* Altura mínima para preencher a tela */
+  min-height: 80vh;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #555;
-  background-color: #f8f8f8;
 }
 
-/* --- Container principal do conteúdo (abaixo do Hero) --- */
+/* --- Container principal (Wrapper) --- */
 .details-page-content-wrapper {
   max-width: 1200px;
-  margin: 50px auto; /* Espaçamento superior e inferior */
-  padding: 0 20px; /* Padding lateral */
+  margin: 40px auto;
+  padding: 0 20px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -23,123 +22,187 @@
   background: none;
   border: none;
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: #6c757d;
   cursor: pointer;
-  margin-bottom: 40px; /* Mais espaço abaixo do botão */
+  margin-bottom: 25px;
   display: inline-flex;
   align-items: center;
-  padding: 8px 15px; /* Adiciona padding para parecer mais com um botão clicável */
-  border-radius: 8px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  padding: 5px;
+  transition: color 0.2s ease;
 }
 
 .back-button:hover {
   color: #212529;
-  background-color: #f0f0f0;
 }
 
-/* --- Seção Principal do Produto (Imagem + Info) --- */
+/* --- Card Principal do Produto (Imagem + Info) --- */
 .product-main-details-section {
   display: flex;
-  gap: 80px; /* Mais espaço entre imagem e info */
+  gap: 60px;
   background-color: #ffffff;
-  padding: 40px; /* Padding interno para o bloco do produto */
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra suave */
-  margin-bottom: 100px; /* Espaço antes dos relacionados */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  margin-bottom: 80px;
 }
 
-/* --- Galeria de Imagens (esquerda) --- */
+/* --- Coluna da Esquerda: Galeria de Imagens --- */
 .product-image-gallery {
-  flex: 1.2; /* Dá mais espaço para a imagem */
+  flex: 1.2;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
+/* * -----------------------------------------------------------------
+ * MUDANÇA #1: IMAGEM PRINCIPAL COM TAMANHO FIXO
+ * - Removemos 'width: 100%' e 'max-height'.
+ * - Definimos uma 'height' fixa. Isso FORÇA o box a ter 
+ * sempre 500px de altura.
+ * - 'aspect-ratio: 1 / 1' garante que a largura seja igual à altura (500px).
+ * - 'object-fit: contain' garante que o PRODUTO INTEIRO apareça
+ * dentro desse quadrado, sem cortes.
+ * -----------------------------------------------------------------
+ */
 .main-product-image {
-  width: 100%;
-  max-width: 550px;
-  height: auto; /* Mantém a altura automática para o aspect-ratio funcionar */
-  display: block; /* Garante o comportamento correto do bloco */
-  border-radius: 12px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  aspect-ratio: 1 / 1; /* Força a imagem a ser um quadrado perfeito */
-  object-fit: cover;   /* Preenche o espaço sem distorcer, cortando o excesso */
+  height: 500px; /* ALTURA FIXA */
+  width: 100%; /* Largura ocupa o espaço da coluna */
+  aspect-ratio: 1 / 1; /* Força a ser um quadrado (largura será = altura) */
+  object-fit: contain; /* MOSTRA O PRODUTO INTEIRO, sem cortes */
+  background-color: #f9f9f9; /* Fundo para imagens com transparência */
+  border-radius: 10px;
+  border: 1px solid #f0f0f0;
+  display: block;
+  
+  /* Removemos max-width e max-height para não haver conflitos */
+  
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-/* --- Bloco de Informações (direita) --- */
+@keyframes fadeIn {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+/* --- Galeria de Miniaturas --- */
+.product-thumbnail-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+/* Miniaturas também usarão 'contain' para consistência */
+.thumbnail-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain; /* MUDANÇA: Mesmo 'fit' da imagem principal */
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  background-color: #fdfdfd;
+}
+
+.thumbnail-image:hover {
+  border-color: #aaa;
+  transform: scale(1.05);
+}
+
+.thumbnail-image.active {
+  border-color: #5D4037;
+  box-shadow: 0 0 8px rgba(93, 64, 55, 0.3);
+}
+
+/* * -----------------------------------------------------------------
+ * MUDANÇA #2: ESPAÇAMENTO CONSISTENTE
+ * - Aplicamos flex-direction: column ao container.
+ * - Colocamos 'margin-bottom' fixo em cada item (título, preço, descrição).
+ * - Mantemos 'margin-top: auto' no ÚLTIMO item (o botão),
+ * o que o empurra para o final.
+ * -----------------------------------------------------------------
+ */
 .product-info-block {
   flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Essencial para o 'margin-top: auto' funcionar */
   text-align: left;
 }
 
 .product-category {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #6c757d;
+  color: #888;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px; /* Espaço Categoria -> Título */
 }
 
 .product-name {
-  font-size: 2.8rem; /* Título maior */
+  font-size: 2.4rem;
   font-weight: 700;
-  color: #212529;
-  line-height: 1.2;
-  margin: 0 0 16px 0;
+  color: #252525;
+  line-height: 1.25;
+  margin-top: 0;
+  margin-bottom: 25px; /* Espaço Título -> Preço */
 }
 
-.product-dimensions {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 25px;
-}
-
+/* * -----------------------------------------------------------------
+ * MUDANÇA #3: DESTAQUE NO PREÇO
+ * - Aumentamos a fonte e o peso.
+ * - Usamos uma cor marrom mais escura e forte (#4E342E) 
+ * para um destaque inegável.
+ * -----------------------------------------------------------------
+ */
 .product-price {
-  font-size: 2.5rem; /* Preço maior e mais destacado */
-  font-weight: 700;
-  color: #212529;
-  margin-bottom: 35px;
+  font-size: 2.7rem; /* MUDANÇA: Maior */
+  font-weight: 800; /* MUDANÇA: Super bold */
+  color: #4E342E; /* MUDANÇA: Cor marrom escura e forte */
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 30px; /* Espaço Preço -> Descrição */
 }
 
-/* --- Descrição Completa (se existir) --- */
+/* --- Descrição Completa --- */
 .product-full-description {
-  margin-top: 25px;
+  color: #555;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-top: 0;
+  margin-bottom: 30px; /* Espaço Descrição -> (Auto) -> Botão */
   padding-top: 25px;
-  border-top: 1px solid #eee;
-  color: #444;
-  line-height: 1.6;
+  border-top: 1px solid #f0f0f0; /* Divisor sutil */
 }
 
 .product-full-description h4 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: #333;
 }
 
 /* --- Botão CTA WhatsApp --- */
 .product-actions {
-  margin-top: auto; /* Empurra para o final do bloco */
-  padding-top: 30px;
+  /* Esta é a regra mais importante para o espaçamento:
+     Ela empurra o botão para o fundo do card,
+     preenchendo o espaço vazio. */
+  margin-top: auto; 
+  
+  /* O padding-top garante um espaço MÍNIMO 
+     caso a descrição não exista ou seja muito curta */
+  padding-top: 30px; 
 }
 
 .whatsapp-cta-button {
   display: block;
   width: 100%;
-  padding: 18px;
-  background-color: #5D4037; /* Cor marrom que você gostou */
+  padding: 16px;
+  background-color: #5D4037;
   color: #ffffff;
   border: none;
-  border-radius: 12px;
-  font-size: 1.1rem; /* Botão um pouco maior */
+  border-radius: 10px;
+  font-size: 1.05rem;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
@@ -154,14 +217,14 @@
 
 /* --- Seção de Produtos Relacionados --- */
 .related-products-section {
-  margin-top: 100px;
-  border-top: 1px solid #e0e0e0;
+  margin-top: 80px;
+  border-top: 1px solid #e9e9e9;
   padding-top: 60px;
   text-align: center;
 }
 
 .related-products-title {
-  font-size: 2.2rem; /* Título maior */
+  font-size: 2.0rem;
   font-weight: 700;
   color: #212529;
   margin-bottom: 50px;
@@ -178,81 +241,46 @@
   .product-main-details-section {
     flex-direction: column;
     gap: 40px;
-    padding: 30px;
+    padding: 25px;
   }
 
   .product-image-gallery {
     align-items: center;
   }
 
+  /* Na responsividade, relaxamos a altura fixa 
+     para a imagem não ficar gigante */
+  .main-product-image {
+    height: auto; /* MUDANÇA: Altura automática */
+    width: 100%;
+    max-width: 500px; /* Limita a largura máxima */
+    aspect-ratio: 1 / 1; /* Mantém o box quadrado */
+  }
+  
+  .product-thumbnail-gallery {
+    justify-content: center;
+    max-width: 500px;
+  }
+
   .product-name {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
   }
 
   .product-price {
-    font-size: 2rem;
-  }
-
-  .related-products-title {
-    font-size: 1.8rem;
+    font-size: 2.4rem; /* Ajusta o preço destacado */
   }
 }
 
 @media (max-width: 768px) {
   .details-page-content-wrapper {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 0 15px;
   }
   .back-button {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
   .product-main-details-section {
     padding: 20px;
+    gap: 30px;
   }
-}
-
-/* Dentro de DetailsPage.css (adicione no final) */
-
-/* --- Estilos da Galeria de Imagens --- */
-
-/* Faz a imagem principal ter uma animação de fade-in suave */
-.main-product-image {
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0.7; }
-  to { opacity: 1; }
-}
-
-/* Container para as miniaturas */
-.product-thumbnail-gallery {
-  display: grid;
-  /* Cria um grid com 5 colunas, ou menos se não houver espaço */
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  gap: 15px;
-  margin-top: 20px; /* Espaço entre a imagem principal e as miniaturas */
-}
-
-/* Estilo de cada miniatura */
-.thumbnail-image {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 2px solid #e0e0e0;
-  cursor: pointer;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.thumbnail-image:hover {
-  border-color: #aaa;
-  transform: scale(1.05);
-}
-
-/* Estilo da miniatura ATIVA (selecionada) */
-.thumbnail-image.active {
-  border-color: #5D4037; /* Cor marrom de destaque que você já usa */
-  box-shadow: 0 0 8px rgba(93, 64, 55, 0.4);
 }

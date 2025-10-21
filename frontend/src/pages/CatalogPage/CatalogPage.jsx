@@ -10,7 +10,14 @@ const CatalogPage = () => {
   const { products, loading } = useProdutos();
 
   if (loading) {
-    return <p>Carregando catálogo...</p>;
+    return (
+      <div className="catalog-page">
+        <HeroSecond title={'Catálogo'} />
+        <div className="catalog-container">
+          <p>Carregando Informacoes...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
