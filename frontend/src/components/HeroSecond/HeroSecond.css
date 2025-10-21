@@ -72,3 +72,34 @@
   margin: 0 auto;
   font-weight: 400;
 }
+
+@media (max-width: 768px) {
+  .hero-second-container {
+    /* Reduz a altura mínima e o padding vertical */
+    min-height: 25vh;
+    padding: 90px 20px 50px; 
+  }
+
+  .hero-second-content h1 {
+    /* Diminui drasticamente o tamanho do título */
+    font-size: 2.5rem; 
+    margin-bottom: 1rem;
+  }
+
+  .hero-second-content p {
+    /* Diminui levemente o subtítulo */
+    font-size: 0.8rem;
+  }
+
+  /* Opção 1: Esconder as elipses decorativas, 
+    pois podem poluir a tela no mobile.
+  */
+  .hero-second-container::before,
+  .hero-second-container::after {
+    display: none;
+  }
+
+  .hero-second-content p{
+    display: none;
+  }
+}  
