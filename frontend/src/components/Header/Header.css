@@ -1,92 +1,281 @@
 @import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
 
+/* ============================================= */
+/* --- ESTILOS BASE --- */
+/* ============================================= */
 header.main-header {
-  display: flex;
+  width: 100%;
   background-color: #1d1d1b;
-  justify-content: center;
+  position: relative;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Mantém o space-between original */
   align-items: center;
-  gap: 5rem;
-  padding-inline: 5%;
-  padding-block: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo a {
-  font-size: 1.5rem;
-  font-weight: 200; /* Negrito */
-  color: #eee; /* Cor escura para o texto */
+  font-size: 1.3rem;
+  font-weight: 200;
+  color: #eee;
   text-decoration: none;
-  letter-spacing: 7px;
+  letter-spacing: 5px;
   font-family: 'Macondo', cursive;
+  z-index: 1002;
+  position: relative;
 }
 
-nav ul {
-  display: flex;
+/* ============================================= */
+/* --- BOTÃO HAMBÚRGUER --- */
+/* ============================================= */
+.hamburger-icon {
+  display: flex; /* Visível no mobile */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002;
+  position: relative;
+}
+
+.hamburger-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Animação para "X" */
+.hamburger-icon.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-icon.open span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* ============================================= */
+/* --- MENU DESKTOP --- */
+/* ============================================= */
+.desktop-menu {
+  display: none; /* Escondido no mobile */
   align-items: center;
-  justify-content: center;
-  gap: 2.5rem; /* Aumentei um pouco o espaço */
+  /* gap: 3rem; */ /* Removido, o space-between vai cuidar disso */
+}
+
+.desktop-menu ul {
+  display: flex;
   list-style: none;
-  margin: 0; /* Remove margens padrão */
-  padding: 0; /* Remove paddings padrão */
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
 }
 
-nav ul li a {
+.desktop-menu ul li a {
+  color: #fff;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
   font-size: 1rem;
-  font-weight: 550; /* Um peso de fonte semi-negrito */
-  color: #fff; /* Cinza escuro para boa legibilidade */
-  position: relative; /* Necessário para o efeito de sublinhado animado */
-  padding-bottom: 5px; /* Espaço para a linha abaixo */
-  transition: color 0.5s ease; /* Transição suave da cor */
 }
 
-nav ul li a:hover {
+.desktop-menu ul li a:hover {
   color: orange;
 }
 
-.header-actions {
-  padding: 15px;
+/* REGRA ANTIGA - NÃO PRECISA MAIS */
+/* .desktop-menu .header-actions { ... } */
+
+
+/* NOVO BOTÃO DESKTOP (Escondido no mobile) */
+.header-actions-desktop {
+  display: none;
+  padding: 10px 20px;
   border: 1px solid #fff;
   border-radius: 15px;
   background: #1d1d1b;
-  transition:
-    transform 0.3s ease,
-    background-color 0.3s ease;
-  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.header-actions a {
+.header-actions-desktop a {
   color: #fff;
   text-decoration: none;
+  font-size: 1rem;
 }
 
-.header-actions:hover {
+.header-actions-desktop:hover {
   transform: scale(1.05);
 }
 
-/* ESTILO ADICIONAL CORRIGIDO: SÓ SERÁ APLICADO NA HOME PAGE */
+/* ============================================= */
+/* --- MENU MOBILE --- */
+/* ============================================= */
+/* (Seu CSS do menu mobile permanece exatamente o mesmo) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #1d1d1b;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem;
+  box-sizing: border-box;
+  padding-top: 100px;
+}
+.mobile-menu.open {
+  transform: translateX(0);
+}
+.nav-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+}
+.nav-mobile ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+.nav-mobile ul li {
+  width: 100%;
+  text-align: left;
+}
+.nav-mobile ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 550;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 0.8rem 0;
+  width: 100%;
+  text-align: left;
+  padding-left: 0;
+}
+.nav-mobile ul li a:hover {
+  color: orange;
+}
+.header-actions-mobile {
+  padding: 15px 25px;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  background: transparent;
+  margin-top: 2rem;
+  text-align: center;
+  width: auto;
+  min-width: 180px;
+  align-self: flex-start;
+}
+.header-actions-mobile a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 550;
+  display: block;
+  text-align: center;
+}
+
+/* ============================================= */
+/* --- HEADER TRANSPARENTE --- */
+/* ============================================= */
 header.main-header.transparent-header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   background-color: transparent;
   box-shadow: none;
-
-  /* --- CORREÇÃO 1: GARANTIR QUE FIQUE NA FRENTE DE TUDO --- */
-  z-index: 1000; /* Número alto para garantir que seja a camada superior */
 }
 
-/* --- CORREÇÃO 2: GARANTIR QUE O TEXTO SEJA LEGÍVEL --- */
 header.main-header.transparent-header .logo a,
-header.main-header.transparent-header nav ul li a,
-header.main-header.transparent-header .header-actions a {
-  /* Adiciona uma sombra para destacar o texto da imagem de fundo */
+header.main-header.transparent-header .desktop-menu ul li a {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Ajuste no botão para a versão transparente */
-header.main-header.transparent-header .header-actions {
+/* ATUALIZADO para o novo botão desktop */
+header.main-header.transparent-header .header-actions-desktop {
   background-color: transparent;
   border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================= */
+/* --- MEDIA QUERIES --- */
+/* ============================================= */
+@media (min-width: 768px) {
+  .hamburger-icon {
+    display: none; /* ESCONDE o hambúrguer */
+  }
+
+  .desktop-menu {
+    display: flex; /* MOSTRA o menu desktop */
+  }
+
+  /* MOSTRA o novo botão desktop */
+  .header-actions-desktop {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none; /* ESCONDE o menu mobile */
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+    letter-spacing: 7px;
+  }
+
+  /* REMOVA ESTA REGRA - ela puxava o menu p/ esquerda */
+  /* .desktop-menu ul {
+    margin-right: auto; 
+    gap: 1.5rem;
+  } */
+
+  /* REMOVA ESTAS REGRAS - elas alinhavam tudo à esquerda */
+  /* .header-container {
+    justify-content: flex-start; 
+    gap: 4rem; 
+  } */
+}
+
+@media (min-width: 1024px) {
+  .header-container {
+    padding: 1.5rem 5%;
+  }
+  
+  /* Esta regra agora está correta, controlando só os links */
+  .desktop-menu ul {
+    gap: 2rem;
+  }
+}
+
+/* Garantir que o body não scroll quando menu abrir */
+body.menu-open {
+  overflow: hidden;
 }
