@@ -6,22 +6,31 @@
   transform: translate(-50%, 50%); /* O truque mágico! */
   display: flex;
   justify-content: space-around;
-  width: 90%; /* Definimos uma largura para a barra, como na imagem */
+  align-items: flex-start; /* Alinha os itens pelo topo */
+  width: 90%; /* Definimos uma largura para a barra */
   max-width: 1200px; /* E uma largura máxima */
   background-color: #121212;
   padding: 2.5rem 1rem;
-  z-index: 10; /* Aumentamos o z-index para garantir que fique na frente de tudo */
-  border-radius: 10px; /* Adicionando bordas arredondadas como na imagem */
+  z-index: 10; /* Aumentamos o z-index */
+  border-radius: 10px; /* Bordas arredondadas */
   box-sizing: border-box;
+  
+  /* Transição suave para as mudanças de tamanho */
+  transition: all 0.3s ease-in-out;
 }
 
 .stat-item {
   color: white;
   text-align: center;
-  padding: 0 1rem; /* Espaçamento para não colar os itens */
+  padding: 0 1rem; /* Espaçamento lateral */
+  
+  /* Usamos flex-basis para melhor controle em layouts flex */
+  flex-basis: 22%; /* ~25% para cada um dos 4 itens */
   min-width: 150px; /* Largura mínima para cada item */
-  margin-bottom: 1rem; /* Espaçamento inferior para telas pequenas */
   border-top: 3px solid #fff;
+  
+  /* Transição para suavizar o display:none */
+  transition: all 0.3s ease-in-out;
 }
 
 .stat-number {
@@ -39,5 +48,62 @@
   margin-top: 0.5rem;
   color: #a0a0a0; /* Cinza claro para descrição */
   text-transform: uppercase; /* TUDO EM MAIÚSCULO */
-  letter-spacing: 1.5px; /* Espaçamento entre as letras para um look refinado */
+  letter-spacing: 1.5px; /* Espaçamento entre as letras */
+}
+
+
+/* ==================================
+--- INÍCIO DA RESPONSIVIDADE --- 
+==================================
+*/
+
+/* 1. TABLET (Quebra em 2x2) */
+@media (max-width: 992px) {
+  .stats-bar {
+    flex-wrap: wrap; 
+    justify-content: center;
+    padding: 2rem;
+    transform: translate(-50%, 35%); 
+  }
+
+  .stat-item {
+    flex-basis: 40%; 
+    margin: 1rem 0.5rem;
+  }
+}
+
+
+/* 2. MOBILE (Esconde os 2 últimos, como sugerido) */
+@media (max-width: 600px) {
+  .stats-bar {
+    flex-wrap: nowrap; /* Força os 2 restantes a ficarem na mesma linha */
+    justify-content: space-around; /* Espaça os 2 itens */
+    padding: 1.5rem 0.5rem;
+    width: 95%; /* Ocupa um pouco mais da tela */
+    transform: translate(-50%, 25%); /* Sobe menos ainda */
+  }
+
+  .stat-item {
+    /* Cada um dos 2 itens ocupa ~45% */
+    flex-basis: 45%; 
+    min-width: 130px; /* Reduz o mínimo */
+    margin: 0; /* Remove a margem do tablet */
+    padding: 0 0.5rem;
+  }
+
+  /* Oculta o 3º e 4º item */
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    display: none;
+  }
+
+  /* Ajusta as fontes para telas bem pequenas */
+  .stat-number {
+     font-size: clamp(1.8rem, 5vw, 2.5rem); 
+  }
+
+  .stat-description {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
 }

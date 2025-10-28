@@ -1,7 +1,6 @@
 /* --- ESTILO GERAL DA SEÇÃO HERO --- */
 .hero-section {
   position: relative;
-  /* padding: 10rem 2rem 0; */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,8 +9,13 @@
   align-items: center;
   min-height: 85vh;
   justify-content: center;
-  margin-bottom: 70px;
+  
+  /* Este padding e margin são os pontos-chave */
   padding: 140px 2rem 5rem;
+  margin-bottom: 70px; /* Espaço para a StatsBar (desktop) */
+
+  /* Transições suaves para padding e margin */
+  transition: all 0.3s ease-in-out;
 }
 
 /* --- CONTEÚDO DO HERO (TÍTULO, SUBTÍTULO, BOTÃO) --- */
@@ -21,12 +25,14 @@
   color: white;
   text-align: center;
   margin-bottom: 5rem; /* Adiciona um espaço antes da barra de estatísticas */
+  transition: margin 0.3s ease-in-out;
 }
 
 .hero-title {
   font-family: 'Playfair Display', serif; /* Fonte elegante para o título */
   font-weight: 400;
-  font-size: clamp(3rem, 7vw, 5.5rem); /* Fonte responsiva */
+  /* Esta linha já é perfeitamente responsiva! */
+  font-size: clamp(3rem, 7vw, 5.5rem); 
   line-height: 1.1;
   margin: 0 0 1rem 0; /* Margem inferior */
 }
@@ -38,6 +44,7 @@
   max-width: 550px;
   margin: 0 auto 2.5rem;
   opacity: 0.9;
+  transition: font-size 0.3s ease;
 }
 
 .hero-button {
@@ -61,10 +68,51 @@
   cursor: pointer;
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    padding 0.3s ease;
 }
 
 .hero-button:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ==================================
+--- INÍCIO DA RESPONSIVIDADE --- 
+==================================
+*/
+
+/* 1. TABLET (Sincroniza com a StatsBar) */
+@media (max-width: 992px) {
+  .hero-section {
+    /* Reduz a margem inferior para a StatsBar (layout 2x2) */
+    margin-bottom: 50px; 
+    min-height: 80vh;
+  }
+}
+
+/* 2. MOBILE (Ajustes finos) */
+@media (max-width: 600px) {
+  .hero-section {
+    /* Reduz a margem inferior para a StatsBar (layout 2 col) */
+    margin-bottom: 30px; 
+    /* Reduz o padding para telas menores */
+    padding: 100px 1rem 4rem; 
+    min-height: 75vh;
+  }
+
+  .hero-content {
+    margin-bottom: 3rem; /* Menos espaço interno no mobile */
+  }
+
+  .hero-subtitle {
+    font-size: 1rem; /* Fonte do subtítulo ligeiramente menor */
+    max-width: 90%; /* Permite quebrar a linha melhor */
+  }
+
+  .hero-button {
+    font-size: 0.8rem;
+    padding: 0.8rem 2rem; /* Botão ligeiramente menor */
+  }
 }

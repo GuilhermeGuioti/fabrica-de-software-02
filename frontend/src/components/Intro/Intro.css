@@ -1,9 +1,11 @@
 /* --- ESTRUTURA PRINCIPAL E LAYOUT --- */
 
 .intro-section {
-  padding-top: 10rem;
+  padding-top: 10rem; /* Espaço para a StatsBar flutuante (desktop) */
   padding-bottom: 7rem;
   overflow: hidden;
+  /* Transição suave para a mudança de padding */
+  transition: padding 0.3s ease-in-out;
 }
 
 .intro-container {
@@ -56,7 +58,7 @@
   margin-top: 2.5rem;
   padding-bottom: 1.5625rem;
   border-bottom: 1px solid #c5d1c7;
-  align-self: flex-start;
+  align-self: flex-start; /* Alinhado à esquerda no desktop */
 }
 
 .intro-highlights span {
@@ -80,14 +82,14 @@
     transform 0.3s ease,
     background-color 0.3s ease;
   margin-top: 2.5rem;
-  align-self: flex-start;
+  align-self: flex-start; /* Alinhado à esquerda no desktop */
 }
 
 .intro-cta-button:hover {
   transform: scale(1.05);
 }
 
-/* --- ESTRUTURA PRINCIPAL E LAYOUT --- */
+/* --- COLUNA DA IMAGEM --- */
 
 .intro-image-column {
   flex: 1;
@@ -107,7 +109,7 @@
   max-width: 500px;
 }
 
-/* --- ADICIONANDO AS "FIRULAS" COM PSEUDO-ELEMENTOS --- */
+/* --- "FIRULAS" COM PSEUDO-ELEMENTOS --- */
 
 .intro-image-column::before,
 .intro-image-column::after {
@@ -115,6 +117,7 @@
   position: absolute;
   z-index: 1;
   border-radius: 8px;
+  transition: all 0.3s ease; /* Adiciona transição */
 }
 
 .intro-image-column::before {
@@ -131,4 +134,81 @@
   height: 85%;
   bottom: -40px;
   right: -40px;
+}
+
+
+/* ==================================
+--- INÍCIO DA RESPONSIVIDADE --- 
+==================================
+*/
+
+/* 1. TABLET (Esconde a imagem e centraliza o texto) */
+@media (max-width: 992px) {
+  .intro-section {
+    /* CORRIGE O "BURACO" (padding menor para o tablet) */
+    padding-top: 7rem; 
+    padding-bottom: 5rem;
+  }
+
+  .intro-container {
+    flex-direction: column; /* Empilha as colunas (embora uma vá sumir) */
+    text-align: center; /* Centraliza todo o texto */
+  }
+
+  .intro-text-column {
+    align-items: center; /* Centraliza os itens filhos */
+  }
+  
+  .intro-text-column p {
+    max-width: 600px; /* Permite que o parágrafo fique um pouco mais largo */
+  }
+
+  /* Esconde a coluna da imagem INTEIRA (incluindo as firulas) */
+  .intro-image-column {
+    display: none;
+  }
+
+  /* Centraliza os destaques e o botão que antes estavam à esquerda */
+  .intro-highlights,
+  .intro-cta-button {
+    align-self: center;
+  }
+}
+
+
+/* 2. MOBILE (Ajustes finos para telas pequenas) */
+@media (max-width: 600px) {
+  .intro-section {
+    /* CORRIGE O "BURACO" (padding ainda menor para mobile) */
+    padding-top: 5rem; 
+    padding-bottom: 4rem;
+  }
+
+  .intro-text-column h2 {
+    font-size: 2.5rem; /* Diminui um pouco o título principal */
+  }
+
+  .intro-highlights {
+    flex-direction: column; /* Empilha os destaques */
+    gap: 1.5rem; /* Diminui o espaço entre eles */
+    align-self: center; /* Garante a centralização */
+    border-bottom: none; /* Remove a linha */
+    padding-bottom: 0;
+  }
+
+  .intro-highlights span {
+    font-size: 1.25rem; /* Diminui a fonte dos destaques */
+    border-bottom: 1px solid #c5d1c7; /* Adiciona linha em cada */
+    padding-bottom: 1rem;
+  }
+  
+  .intro-highlights span:last-child {
+    border-bottom: none; /* Remove a linha do último */
+    padding-bottom: 0;
+  }
+  
+  .intro-cta-button {
+    width: 90%; /* Faz o botão ocupar mais espaço na tela */
+    padding: 15px 25px;
+  }
 }

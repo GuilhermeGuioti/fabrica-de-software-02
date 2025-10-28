@@ -10,6 +10,9 @@
   justify-content: center;
   min-height: 100vh;
   margin: 0;
+  /* Adiciona padding para telas móveis */
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .container {
@@ -22,12 +25,14 @@
   max-width: 100%;
   min-height: 550px;
   color: #eeeeee;
+  transition: all 0.3s ease-in-out;
 }
 
 .form-container {
   position: absolute;
   top: 0;
   height: 100%;
+  transition: all 0.3s ease-in-out;
 }
 
 .sign-in {
@@ -50,6 +55,7 @@
 /* Estilos gerais para os elementos do formulário */
 .container h1 {
   font-weight: 700;
+  transition: font-size 0.3s ease;
 }
 .container p {
   font-size: 15px;
@@ -130,6 +136,7 @@
   border-color: #ff7618;
 }
 
+/* --- PAINEL LARANJA (DIREITA) --- */
 .toggle-container {
   position: absolute;
   top: 0;
@@ -138,15 +145,15 @@
   height: 100%;
   overflow: hidden;
   z-index: 100;
-  /* Use esta linha para arredondar os cantos da ESQUERDA */
   border-radius: 150px 0 0 150px;
+  transition: all 0.3s ease-in-out;
 }
 
 .toggle {
   background: linear-gradient(to right, #7a3b18, #ff7618);
   color: #ffffff;
   height: 100%;
-  width: 100%; /* Largura fixa, não precisa mais ser 200% */
+  width: 100%;
 }
 
 .toggle-panel {
@@ -158,4 +165,63 @@
   flex-direction: column;
   padding: 0 30px;
   text-align: center;
+}
+
+
+/* ==================================
+--- INÍCIO DA RESPONSIVIDADE --- 
+==================================
+*/
+
+/* 1. TABLET E MOBILE (Ponto de quebra: 768px) */
+@media (max-width: 768px) {
+  .container {
+    /* Remove altura e largura fixas */
+    width: 100%;
+    max-width: 450px; /* Limita a largura máxima no mobile */
+    min-height: auto;
+    border-radius: 20px;
+  }
+
+  /* 2. OCULTA O PAINEL LARANJA (conforme sua sugestão) */
+  .toggle-container {
+    display: none;
+  }
+
+  /* 3. FAZ O FORMULÁRIO OCUPAR 100% */
+  .form-container {
+    position: relative; /* Remove o position absolute */
+    height: auto;
+    width: 100%;
+  }
+
+  .sign-in {
+    width: 100%;
+  }
+  
+  /* 4. Ajusta o padding interno do formulário */
+  .container form {
+    padding: 3rem 2rem; /* Mais respiro vertical */
+    height: auto;
+  }
+  
+  /* 5. Ajustes finos de fonte e ícones */
+  .container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .container p {
+    margin: 1rem 0;
+  }
+  .social-icons {
+    margin: 1rem 0;
+  }
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    margin: 0 3px;
+  }
+  .container a {
+     margin: 1rem 0;
+  }
 }

@@ -1,10 +1,14 @@
+/* ================================== */
+/* 1. Estilo Principal (Desktop - Base) */
+/* (Este é o seu Código 1)            */
+/* ================================== */
+
 .contact-section {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-block: 5rem;
-  /* border: 1px dashed red; */
   margin-inline: 20%;
 }
 
@@ -17,22 +21,26 @@
   text-transform: uppercase;
   color: #ff7618;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1rem; /* Padrão 'About Us' Desktop */
 }
 
 .contact-title h2,
 .contact-quote-title h2 {
   padding-block: 0.8rem;
-  font-size: 2.2rem;
+  font-size: 2.2rem; /* Padrão 'About Us' Desktop */
   font-weight: 500;
 }
 
+/* --- PADRONIZAÇÃO APLICADA AQUI --- */
 .contact-title p,
 .contact-quote-title p {
   max-width: 450px;
-  opacity: 0.6;
-  font-size: 0.9;
+  color: #555;      /* Cor padronizada */
+  font-size: 1.1rem; /* Tamanho padronizado */
+  line-height: 1.8;  /* Altura de linha padronizada */
+  /* opacity: 0.6;  (Removido para usar a cor sólida #555) */
 }
+/* --- FIM DA PADRONIZAÇÃO --- */
 
 .contact-cards-container {
   margin-top: 4rem;
@@ -52,9 +60,7 @@
   border-radius: 10px;
   cursor: pointer;
   color: #eee;
-  background:
-    radial-gradient(circle at top right, #7a3b18 0%, transparent 60%), #0a0a0a;
-  /* radial-gradient(circle at top right, #121212 0%, transparent 60%), #424243; */
+  background: radial-gradient(circle at top right, #7a3b18 0%, transparent 60%), #0a0a0a;
   transition: transform 0.3s ease;
 }
 
@@ -91,7 +97,6 @@
   width: 100%;
   display: flex;
   margin-inline: 15%;
-  /* border: 1px dashed red; */
 }
 
 .contact-quote-left {
@@ -112,4 +117,153 @@
 
 .contact-quote-right {
   width: 60%;
+}
+
+/* ================================== */
+/* 2. Adicionando a Responsividade    */
+/* (Regras do Código 2)               */
+/* ================================== */
+
+/* Tablet (Telas até 1023px) */
+@media (max-width: 1023px) {
+  .contact-section {
+    margin-inline: 8%;
+    margin-block: 4rem;
+  }
+
+  .contact-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .contact-card {
+    height: 160px;
+    width: 100%; /* -> Permite que o card se ajuste ao grid */
+  }
+
+  .contact-map {
+    margin-inline: 5%;
+    width: auto; /* -> Ajusta ao novo margin-inline */
+  }
+
+  .contact-quote {
+    margin-inline: 5%;
+    width: auto; /* -> Ajusta ao novo margin-inline */
+  }
+
+  .contact-quote-left {
+    text-align: left;
+    justify-content: flex-start;
+    padding: 2rem 0;
+  }
+
+  .arrow-right {
+    font-size: 3.5rem;
+    transform: rotate(0deg);
+    justify-content: flex-start;
+  }
+
+  .contact-title h2,
+  .contact-quote-title h2 {
+    font-size: 2rem; /* -> Tamanho intermediário para tablet */
+  }
+}
+
+/* Mobile (Telas até 767px) */
+@media (max-width: 767px) {
+  .contact-section {
+    margin-inline: 5%;
+    margin-block: 3rem;
+    padding: 0 1rem;
+  }
+
+  .contact-title {
+    width: 100%;
+  }
+
+  .contact-title h3,
+  .contact-quote-title h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-title h2,
+  .contact-quote-title h2 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    padding-block: 0; /* -> Remove padding do desktop */
+  }
+
+  .contact-title p,
+  .contact-quote-title p {
+    max-width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .contact-cards-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    grid-template-columns: 1fr; /* -> Uma coluna */
+    gap: 1.5rem;
+    max-width: 300px;
+  }
+
+  .contact-card {
+    height: 140px;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .contact-card a {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-card h2 {
+    font-size: 1.1rem;
+    margin: 0.2rem 0;
+    text-align: center;
+  }
+
+  .contact-card span {
+    font-size: 0.85rem;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .contact-card:hover {
+    transform: scale(1.03); /* -> Efeito de hover mais sutil */
+  }
+
+  .contact-map {
+    width: 100%;
+    margin: 2rem 0;
+    padding: 0;
+  }
+
+  .contact-quote {
+    flex-direction: column; /* -> Empilha os itens */
+    margin: 2rem 0;
+  }
+
+  .contact-quote-left {
+    width: 100%;
+    justify-content: center;
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+
+  .arrow-right {
+    font-size: 2.5rem;
+    transform: rotate(90deg); /* -> Seta para baixo */
+    justify-content: center;
+  }
+
+  .contact-quote-right {
+    width: 100%;
+  }
 }

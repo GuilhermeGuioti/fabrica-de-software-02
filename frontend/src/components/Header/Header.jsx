@@ -4,9 +4,6 @@ import '../Header/Header.css';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
-  const headerClasses = `main-header ${isHomePage ? 'transparent-header' : ''}`;
 
   // Controlar scroll do body quando menu abrir
   useEffect(() => {
@@ -31,7 +28,7 @@ function Header() {
   };
 
   return (
-    <header className={headerClasses}>
+    <header className="main-header transparent-header">
       <div className="header-container">
         
         {/* 1. Logo (Esquerda) */}
