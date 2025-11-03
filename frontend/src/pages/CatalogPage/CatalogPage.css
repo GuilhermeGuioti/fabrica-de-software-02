@@ -1,7 +1,6 @@
 /* Container geral da página */
 .catalog-page {
-  /* Se você tiver uma cor de fundo geral para o site, coloque aqui */
-  background-color: #f0f2f5; /* Um cinza bem claro para o fundo da página */
+  background-color: #f0f2f5; 
 }
 
 /* O banner marrom que você já tem */
@@ -9,12 +8,13 @@
   background-color: #4a2c1a; /* Seu tom de marrom */
   color: white;
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
   height: 300px; /* Aumentar a altura para dar espaço para a sobreposição */
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .catalog-banner h1 {
   font-size: 4rem;
 }
@@ -42,6 +42,8 @@
   margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 1px solid #e0e0e0;
+  flex-wrap: wrap; /* Permite quebrar a linha em telas menores */
+  gap: 20px; /* Cria um espaço quando os itens quebram a linha */
 }
 
 .catalog-header__title h2 {
@@ -53,18 +55,46 @@
   color: #6c757d;
 }
 
+.catalog-header-container__search{
+  display: flex;
+  flex-grow: 1; /* Faz o container da busca crescer se houver espaço */
+  min-width: 300px; /* Define uma largura mínima antes de quebrar */
+  justify-content: flex-end; /* Mantém os botões/barra à direita (em desktop) */
+}
+
+.btn-filter{
+  margin-left: 1rem;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8B4513;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
 .catalog-header__search {
   display: flex;
   border: 1px solid #ced4da;
   border-radius: 8px;
   overflow: hidden;
+  flex-grow: 1; /* Faz a barra crescer para ocupar o espaço */
+  max-width: 450px; /* Opcional: limita a largura em telas muito grandes */
 }
+
 .catalog-header__search input {
   border: none;
   padding: 10px 15px;
   font-size: 1rem;
   outline: none;
+  flex-grow: 1;
+  width: 350px; 
+  min-width: 150px; /* Reduzido de 350px para 150px (ou até 100px) */
 }
+
 .catalog-header__search .btn-search {
   color: white;
   border: none;
@@ -90,4 +120,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 25px;
+}
+
+@media (max-width:992px) {
+  .catalog-container{
+    margin-top: -50px;
+  }
 }

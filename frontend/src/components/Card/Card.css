@@ -3,27 +3,32 @@
   border-radius: 8px;
   overflow: hidden;
   text-align: center;
-  width: 450px;
-  height: 450px;
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
   padding: 1rem;
+
+  /* --- CORREÇÕES --- */
+  width: 100%;      /* 1. Ocupa 100% do container pai (a coluna do grid) */
+  max-width: 450px; /* 2. Define a largura MÁXIMA que ele pode ter (bom para desktop) */
+  /* height: 450px; <-- 3. REMOVIDO! Deixe a altura ser automática */
+  margin: 0 auto;   /* 4. Centraliza o card na coluna do grid se a tela for > 450px */
 }
 
 .card-image {
   width: 100%;
-  height: 200px; /* Altura fixa para a imagem */
-  object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+  /* height: 200px; */ /* Remove a altura fixa */
+  aspect-ratio: 16 / 9; /* 5. MÁGICO: Mantém a proporção 16:9 (ajuste se precisar) */
+  object-fit: cover; 
   border-radius: 8px;
 }
 
 .card-content {
   padding: 20px;
-  flex-grow: 1; /* Faz esta área crescer para ocupar o espaço */
+  flex-grow: 1; 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Empurra o botão para baixo */
+  justify-content: space-between;
 }
 
 .card-title {
@@ -38,7 +43,7 @@
   font-size: 1rem;
   color: #666;
   margin-bottom: 20px;
-  flex-grow: 1;
+  flex-grow: 1; /* Garante que a descrição empurre o botão para baixo */
 }
 
 .card-button {
@@ -46,13 +51,42 @@
   color: white;
   border: none;
   padding: 12px 24px;
-  border-radius: 25px; /* Bordas bem arredondadas para o botão */
+  border-radius: 25px; 
   font-size: 1rem;
   cursor: pointer;
   transition: transform 0.3s ease;
-  align-self: center; /* Centraliza o botão no eixo cruzado */
+  align-self: center; 
 }
 
 .card-button:hover {
   transform: scale(1.05);
+}
+
+
+/* ========================================= */
+/* === Bloco de Responsividade para Card === */
+/* ========================================= */
+
+@media (max-width: 480px) {
+  .card {
+    padding: 0.75rem; /* Menos padding na borda do card */
+  }
+
+  .card-content {
+    padding: 15px; /* Menos padding no conteúdo */
+  }
+
+  .card-title {
+    font-size: 1.4rem; /* Título menor */
+  }
+
+  .card-description {
+    font-size: 0.9rem; /* Descrição menor */
+    margin-bottom: 15px;
+  }
+
+  .card-button {
+    padding: 10px 20px; /* Botão menor */
+    font-size: 0.9rem;
+  }
 }

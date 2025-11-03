@@ -1,7 +1,7 @@
 /* --- SEÇÃO DE CATEGORIA --- */
 .category-content {
   /* Adiciona um preenchimento vertical para a seção inteira */
-  padding: 2rem 0; 
+  padding: 1rem 0; 
   transition: padding 0.3s ease;
 }
 
@@ -54,7 +54,6 @@
   /* Transições suaves para o grid */
   transition: grid-template-columns 0.3s ease, padding 0.3s ease;
 }
-
 
 /* ==================================
 --- INÍCIO DA RESPONSIVIDADE --- 
