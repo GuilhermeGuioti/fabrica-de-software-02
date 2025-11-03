@@ -1,8 +1,6 @@
 import React from 'react';
 import './AboutPage.css';
 
-import aboutImg from '../../assets/introducao.jpg';
-
 import HeroSecond from '../../components/HeroSecond/HeroSecond';
 import ValuesSection from '../../components/Values/Values.jsx';
 
@@ -20,9 +18,6 @@ function AboutPage() {
         </div>
 
         <div className="about-info-container">
-          <div className="about-info-img">
-            <img src={aboutImg} alt="imagem do sobre nós" />
-          </div>
           <div className="about-info-txt">
             <p>
               Desde a nossa fundação, a PARKMOVEIS nasceu de uma paixão:

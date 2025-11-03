@@ -1,3 +1,5 @@
+/* Seu CSS 'AboutPage.css' Limpo e Corrigido */
+
 .about-section {
   display: flex;
   align-items: center;
@@ -5,7 +7,6 @@
   flex-direction: column;
   margin-block: 5rem;
   margin-inline: 20%;
-  /* border: 1px dashed red; */
 }
 
 .about-title {
@@ -16,12 +17,12 @@
   text-transform: uppercase;
   color: #ff7618;
   font-weight: 500;
-  font-size: 1rem; /* -> Mantido do Código 1 */
+  font-size: 1rem;
 }
 
 .about-title h2 {
   padding-block: 0.8rem;
-  font-size: 2.2rem; /* -> Mantido do Código 1 */
+  font-size: 2.2rem;
   font-weight: 500;
 }
 
@@ -29,67 +30,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem; /* -> Mantido do Código 1 */
+  /* gap: 4rem; */ /* <-- REMOVIDO (só há um item) */
   margin-top: 3rem;
+  width: 100%; /* Garante que o container do texto ocupe o espaço */
 }
 
-.about-info-img {
-  flex: 0 0 45%;
-  position: relative;
-  margin: 20px; /* -> Mantido do Código 1 */
-}
-
-.about-info-img::before {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #d1c5b4;
-  border-radius: 16px; /* -> Mantido do Código 1 */
-  top: -20px; /* -> Mantido do Código 1 */
-  left: -20px; /* -> Mantido do Código 1 */
-  z-index: 1;
-}
-
-.about-info-img::after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #655f5a;
-  border-radius: 16px; /* -> Mantido do Código 1 */
-  bottom: -20px; /* -> Mantido do Código 1 */
-  right: -20px; /* -> Mantido do Código 1 */
-  z-index: 0;
-}
-
-.about-info-img img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 16px; /* -> Mantido do Código 1 */
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* -> Mantido do Código 1 */
-}
+/* === TODAS AS REGRAS ABAIXO FORAM REMOVIDAS === */
+/* .about-info-img { ... } */
+/* .about-info-img::before { ... } */
+/* .about-info-img::after { ... } */
+/* .about-info-img img { ... } */
+/* ============================================== */
 
 .about-info-txt {
-  flex: 1;
+  flex: 1; /* O texto agora ocupa todo o espaço */
 }
 
 .about-info-txt p {
-  font-size: 1.1rem; /* -> Mantido do Código 1 */
-  line-height: 1.8; /* -> Mantido do Código 1 */
+  font-size: 1.1rem;
+  line-height: 1.8;
   color: #555;
-  text-align: justify; /* -> Mantido do Código 1 */
+  text-align: justify;
 }
 
 /* ================================== */
 /* 2. Adicionando a Responsividade    */
-/* (Regras do Código 2)               */
 /* ================================== */
+
+/* O media query de 1600px foi REMOVIDO, pois as regras agora são globais */
 
 /* Tablet (Telas até 1023px) */
 @media (max-width: 1023px) {
@@ -104,23 +72,12 @@
 
   .about-info-container {
     align-items: flex-start;
-    gap: 3rem;
   }
 
   .about-info-txt p {
     font-size: 1.05rem; /* -> Estilo Tablet */
     line-height: 1.7; /* -> Estilo Tablet */
     text-align: left; /* -> Alinha à esquerda no tablet */
-  }
-
-  /* Ajusta as bordas da imagem para tablet */
-  .about-info-img::before {
-    top: -15px;
-    left: -15px;
-  }
-  .about-info-img::after {
-    bottom: -15px;
-    right: -15px;
   }
 }
 
@@ -145,33 +102,8 @@
   }
 
   .about-info-container {
-    flex-direction: column; /* Empilha os itens */
-    gap: 2rem;
+    /* flex-direction: column; */ /* <-- REMOVIDO (só há um item) */
     margin-top: 2rem;
-  }
-
-  .about-info-img {
-    flex: 1; /* Reseta o flex-basis */
-    width: 100%;
-    max-width: 400px; /* Limita o tamanho no mobile */
-    margin: 0; /* Remove a margem do desktop */
-  }
-
-  .about-info-img::before {
-    border-radius: 12px;
-    top: -10px;
-    left: -10px;
-  }
-
-  .about-info-img::after {
-    border-radius: 12px;
-    bottom: -10px;
-    right: -10px;
-  }
-
-  .about-info-img img {
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
 
   .about-info-txt p {
