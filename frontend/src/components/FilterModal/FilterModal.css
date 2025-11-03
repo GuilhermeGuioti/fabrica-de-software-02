@@ -1,0 +1,109 @@
+/* O fundo escuro (backdrop) */
+.modal-backdrop {
+  position: fixed; /* Cobre a tela inteira */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* Preto semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Garante que fique na frente de tudo */
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* O container branco do modal */
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  min-width: 350px;
+  max-width: 90%;
+  max-height: 80vh; /* Limita a altura */
+  overflow-y: auto; /* Adiciona scroll se o conteúdo for muito grande */
+  
+  /* Animação de "zoom" ao abrir */
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+/* Cabeçalho do modal */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #555;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.modal-close-btn:hover {
+  background-color: #f0f0f0;
+}
+
+
+.modal-body h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.modal-body div {
+  margin-bottom: 10px;
+}
+
+.modal-body label {
+  margin-left: 8px;
+  font-size: 1rem;
+}
+
+/* Exemplo de estilo para o botão 'Aplicar Filtros' */
+.btn-apply-filters {
+  background-color: #8B4513; /* Tom marrom do seu site */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btn-apply-filters:hover {
+  background-color: #6a3611;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.filter-option input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+.filter-option label {
+  font-size: 1rem;
+}
