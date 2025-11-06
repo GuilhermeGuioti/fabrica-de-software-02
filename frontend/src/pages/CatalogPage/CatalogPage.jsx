@@ -62,25 +62,25 @@ const CatalogPage = () => {
         <header className="catalog-header">
           {/* ... seu header de busca ... */}
           <div className="catalog-header__title">
-            <h2>Todos os Produtos</h2>
-            <p>Encontre o móvel perfeito para você</p>
-          </div>
-          <div className="catalog-header-container__search">
-            <div className="catalog-header__search">
-              <input 
-                type="text" 
-                placeholder="Buscar no catálogo..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)} 
-              />
-              <button className='btn-search'>
-                <FaSearch />
-              </button>
-            </div>
+            <h2>Todos os Produtos</h2>
+            <p>Encontre o móvel perfeito para você</p>
+          </div>
+          <div className="catalog-header-container__search">
+            <div className="catalog-header__search">
+              <input 
+                type="text" 
+                placeholder="Buscar no catálogo..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)} 
+              />
+              <button className='btn-search'>
+                <FaSearch />
+              </button>
+            </div>
             <button className='btn-filter' onClick={openFilterModal}> 
               <IoFilter />
             </button>
-          </div>
+          </div>
         </header>
 
         <main className="catalog-main-content">

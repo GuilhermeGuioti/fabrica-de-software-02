@@ -1,10 +1,11 @@
 import imgTeste from '../assets/introducao.jpg';
+import imgSalaEstar from '../assets/sala-de-estar.jpg';
 
 export const cardsInfo = [
   {
     id: 1,
-    imagem: imgTeste, // Você precisará colocar suas imagens na pasta /public/images
-    titulo: 'Linha Residencial',
+    imagem: imgSalaEstar,
+    titulo: 'Sala de Estar',
     descricao:
       'Transforme sua casa em um lar acolhedor com nossos móveis e decorações',
   },

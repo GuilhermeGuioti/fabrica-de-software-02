@@ -13,6 +13,13 @@ import { Routes, Route } from 'react-router-dom';
 import MainLayout from './components/MainLayout/MainLayout.jsx';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.jsx';
 
+// --- ADIÇÕES PARA O TEMA DO ADMIN ---
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+// Importe o tema que criamos (ajuste o caminho se necessário)
+import theme from './theme'; 
+// ------------------------------------
+
 function App() {
   return (
     <Routes>
@@ -21,11 +28,16 @@ function App() {
         path="/admin"
         element={
           <ProtectedRoute>
-            <AdminPage />
+            {/* Aqui aplicamos o tema e o reset (CssBaseline) 
+              APENAS para a página de Admin e seus componentes filhos.
+            */}
+            <ThemeProvider theme={theme}>
+              <CssBaseline /> 
+              <AdminPage />
+            </ThemeProvider>
           </ProtectedRoute>
         }
       />
-
       <Route element={<MainLayout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/contato" element={<ContactPage />} />
