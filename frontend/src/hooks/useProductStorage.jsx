@@ -8,17 +8,13 @@ const BUCKET_NAME = 'imagens-produtos'; // <-- CONFIRME ESTE NOME
 export function useProductStorage() {
   const [uploading, setUploading] = useState(false);
 
-  /**
-   * Faz upload de uma nova imagem e a associa a um produto.
-   * @param {File} file - O arquivo de imagem do input.
-   * @param {number} productId - O ID do produto.
-   * @param {function} onUploadSuccess - Callback opcional
-   */
   const uploadImage = async (file, productId, onUploadSuccess) => {
     if (!file || !productId) return;
 
     setUploading(true);
     
+    console.log('CLIENTE SUPABASE URL:', supabase.storageUrl);
+
     const fileExt = file.name.split('.').pop();
     const fileName = `${productId}/${uuidv4()}.${fileExt}`;
 
@@ -62,11 +58,6 @@ export function useProductStorage() {
     setUploading(false);
   };
 
-  /**
-   * Deleta uma imagem do Storage e do banco de dados.
-   * @param {object} image - O objeto da imagem (da tabela 'imagensprodutos')
-   * @param {function} onDeleteSuccess - Callback
-   */
   const deleteImage = async (image, onDeleteSuccess) => {
     if (!image) return;
 

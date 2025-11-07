@@ -100,17 +100,19 @@ function ProductAdmin() {
 
   const handleOpenEditModal = (product) => {
     setIsEditing(true);
-    // Garante que o estado inicial tenha todos os campos
+    
     setCurrentProduct({
       ...initialState, 
-      ...product,
-      // Garante que campos nulos não quebrem os inputs
-      sku: product.sku || '',
+      ...product,       
+      
+      // A correção que evita os erros de 'null'
+      sku: product.sku || '', 
       descricao_curta: product.descricao_curta || '',
       descricao_longa: product.descricao_longa || '',
-      preco_promocional: product.preco_promocional || '',
-      id_categoria: product.id_categoria || '',
+      preco_promocional: product.preco_promocional || '', 
+      id_categoria: product.id_categoria || '', 
     });
+    
     setFilesToUpload([]);
     setOpenModal(true);
   };
