@@ -24,14 +24,26 @@ export function useProdutos() {
         return;
       }
       
-      const formattedProducts = data.map(product => ({
-        id: product.id,
-        imageUrl: product.imagensprodutos.find(img => img.is_principal)?.url_imagem || product.ImagensProdutos[0]?.url_imagem,
-        category: product.categorias.nome,
-        name: product.nome,
-        dimensions: product.descricao_curta,
-        price: product.preco
-      }));
+      // --- DIAGNÓSTICO ADICIONADO ---
+      // Abra o console (F12) e veja o que está sendo retornado aqui.
+      console.log('Dados brutos do Supabase:', data);
+      // ---------------------------------
+      
+      const formattedProducts = data.map(product => {
+        // Esta lógica está CORRETA.
+        const imageUrl = product.imagensprodutos?.find(img => img.is_principal)?.url_imagem || 
+                         product.imagensprodutos?.[0]?.url_imagem || 
+                         ''; // Fallback para uma string vazia
+
+        return {
+          id: product.id,
+          imageUrl: imageUrl,
+          category: product.categorias?.nome || 'Sem Categoria', 
+          name: product.nome,
+          dimensions: product.descricao_curta,
+          price: product.preco
+        };
+      });
       
       setProducts(formattedProducts);
       setLoading(false);

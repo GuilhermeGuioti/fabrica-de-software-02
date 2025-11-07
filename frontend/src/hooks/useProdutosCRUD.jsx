@@ -8,8 +8,6 @@ export function useProdutosCRUD() {
   const getProdutos = useCallback(async (showLoading = true) => {
     if (showLoading) setLoading(true);
 
-    // --- CORREÇÃO AQUI ---
-    // Trocamos o "*" por uma lista explícita de colunas da tabela 'produtos'
     const { data, error } = await supabase
       .from('produtos')
       .select(`
@@ -25,29 +23,26 @@ export function useProdutosCRUD() {
         id_categoria,
         
         categorias ( id, nome ),
-        imagensprodutos ( url_imagem, is_principal )
+        
+        imagensprodutos ( id, url_imagem, alt_texto, is_principal )
       `)
-      .order('id', { ascending: false }); // Mostra os mais novos primeiro
-    // --- FIM DA CORREÇÃO ---
+      .order('id', { ascending: false });
 
     if (error) {
-      // O erro 400 estava acontecendo aqui
       console.error('Erro ao buscar produtos:', error);
       setLoading(false);
       return;
     }
 
-    // Formatamos os dados, mas MANTEMOS os dados originais
-    // (como id_categoria) para facilitar a edição.
     const formattedProducts = data.map(product => ({
-      ...product, // Mantém: id, nome, preco, estoque, id_categoria, etc.
+      ...product, // Mantém todos os dados originais do produto
       
-      // Adiciona campos formatados para EXIBIÇÃO na tabela
+      // Campos formatados para exibição na tabela
       displayCategoryName: product.categorias?.nome || 'Sem Categoria',
       displayImageUrl: 
         product.imagensprodutos.find(img => img.is_principal)?.url_imagem || 
         product.imagensprodutos[0]?.url_imagem || 
-        '', // Fallback para nenhuma imagem
+        '',
     }));
 
     setProducts(formattedProducts);
@@ -59,21 +54,21 @@ export function useProdutosCRUD() {
     getProdutos();
   }, [getProdutos]);
 
-  // --- FUNÇÕES CRUD (Sem alterações, já estavam corretas) ---
+  // --- FUNÇÕES CRUD ---
 
   const createProduct = async (productData) => {
     const { data, error } = await supabase
       .from('produtos')
       .insert(productData)
       .select()
-      .single();
+      .single(); // Retorna o produto criado
 
     if (error) {
       console.error('Erro ao criar produto:', error);
       return { error };
     }
-    await getProdutos(false); 
-    return { data };
+    // REMOVIDO: await getProdutos(false); 
+    return { data }; // Retorna o produto para pegarmos o ID
   };
 
   const updateProduct = async (id, productData) => {
@@ -88,7 +83,7 @@ export function useProdutosCRUD() {
       console.error('Erro ao atualizar produto:', error);
       return { error };
     }
-    await getProdutos(false);
+    // REMOVIDO: await getProdutos(false);
     return { data };
   };
 
@@ -102,10 +97,17 @@ export function useProdutosCRUD() {
       console.error('Erro ao deletar produto:', error);
       return { error };
     }
-    await getProdutos(false);
+    // REMOVIDO: await getProdutos(false);
     return { data: true };
   };
 
-  // Expõe o estado e as funções
-  return { products, loading, createProduct, updateProduct, deleteProduct };
+  // Expõe o estado, as funções E o getProdutos
+  return { 
+    products, 
+    loading, 
+    getProdutos, // <-- EXPORTADO
+    createProduct, 
+    updateProduct, 
+    deleteProduct 
+  };
 }
