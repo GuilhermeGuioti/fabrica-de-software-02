@@ -1,5 +1,6 @@
 import React from 'react';
 import './Intro.css';
+import { Link } from 'react-router-dom';
 import introImg from '../../assets/introducao.jpg';
 
 const Intro = () => {
@@ -18,7 +19,7 @@ const Intro = () => {
           <span>Curadoria Especial</span>
           <span>Materiais de Alta Qualidade</span>
         </div>
-        <button className="intro-cta-button">Explorar Catálogo Completo</button>
+        <Link to="/catalogo" className="intro-cta-button">Explorar Catálogo Completo</Link>
       </div>
       {/* Coluna da Direita com a Imagem */}
       <div className="intro-image-column">

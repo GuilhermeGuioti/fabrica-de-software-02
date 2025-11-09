@@ -54,7 +54,8 @@
   font-size: 1rem;
   cursor: pointer;
   transition: transform 0.3s ease;
-  align-self: center; 
+  align-self: center;
+  text-decoration: none; 
 }
 
 .card-button:hover {

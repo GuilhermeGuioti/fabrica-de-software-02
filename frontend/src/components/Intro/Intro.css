@@ -83,6 +83,7 @@
     background-color 0.3s ease;
   margin-top: 2.5rem;
   align-self: flex-start; /* Alinhado à esquerda no desktop */
+  text-decoration: none;
 }
 
 .intro-cta-button:hover {

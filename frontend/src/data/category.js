@@ -1,5 +1,7 @@
-import imgTeste from '../assets/introducao.jpg';
 import imgSalaEstar from '../assets/sala-de-estar.jpg';
+import imgComercial from '../assets/Interior-Comercial.jpg';
+import imgApartamento from '../assets/Interior-Apartamento.jpg';
+import imgEscritorio from '../assets/Interior-Escritorio.jpg';
 
 export const cardsInfo = [
   {
@@ -11,21 +13,21 @@ export const cardsInfo = [
   },
   {
     id: 2,
-    imagem: imgTeste,
+    imagem: imgComercial,
     titulo: 'Interior Comercial',
     descricao: 'Atenda seus clientes em ambiente elegantes e funcionais',
   },
   {
     id: 3,
-    imagem: imgTeste,
+    imagem: imgApartamento,
     titulo: 'Interior Apartamento',
     descricao:
       'Móveis com design compacto para apartamentos menores e sofisticados',
   },
   {
     id: 4,
-    imagem: imgTeste,
+    imagem: imgEscritorio,
     titulo: 'Interior Escritório',
     descricao: 'Móveis para escritórios comerciais modernos e refinados',
-  },
+  }
 ];

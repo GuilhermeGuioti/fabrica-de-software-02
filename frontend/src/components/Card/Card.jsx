@@ -1,5 +1,6 @@
 import React from 'react';
 import './Card.css';
+import { Link } from 'react-router-dom';
 
 const Card = ({ imagem, titulo, descricao }) => {
   return (
@@ -8,7 +9,7 @@ const Card = ({ imagem, titulo, descricao }) => {
       <div className="card-content">
         <h2 className="card-title">{titulo}</h2>
         <p className="card-description">{descricao}</p>
-        <button className="card-button">Conheça Agora</button>
+        <Link to="/catalogo" className="card-button">Conheça Agora</Link>
       </div>
     </div>
   );
