@@ -121,7 +121,7 @@ function Footer() {
               <a href="/contato">Contato</a>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/login">Admin</Link>
             </li>
           </ul>
         </div>

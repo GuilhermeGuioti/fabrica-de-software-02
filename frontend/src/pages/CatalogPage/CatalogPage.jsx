@@ -13,23 +13,16 @@ const CatalogPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
-  // ATUALIZADO: Apenas o estado dos filtros ATIVOS
   const [activeCategories, setActiveCategories] = useState([]);
   
-  // REMOVIDO: estado 'selectedCategories' (agora está no modal)
 
   const openFilterModal = () => setIsFilterModalOpen(true);
   const closeFilterModal = () => setIsFilterModalOpen(false);
 
-  // ATUALIZADO: Esta é a função que o modal vai chamar.
-  // Ela recebe as categorias do modal e as define como ativas.
   const handleApplyFilters = (selected) => {
     setActiveCategories(selected);
-    // O modal já se fecha sozinho
   };
 
-  // REMOVIDO: 'handleCategoryToggle' (agora está no modal)
-  // REMOVIDO: 'allCategories' e 'useMemo'
 
   if (loading) {
     return (
@@ -60,7 +53,6 @@ const CatalogPage = () => {
 
       <div className="catalog-container">
         <header className="catalog-header">
-          {/* ... seu header de busca ... */}
           <div className="catalog-header__title">
             <h2>Todos os Produtos</h2>
             <p>Encontre o móvel perfeito para você</p>

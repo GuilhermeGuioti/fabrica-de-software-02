@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HeroContent.css';
 
 function HeroContent() {
@@ -10,7 +11,7 @@ function HeroContent() {
         Móveis e Planejados entregues por quem entende do assunto há mais de 60
         anos.
       </p>
-      <button className="hero-button">Confira Nossos Produtos</button>
+      <Link to="/catalogo" className="hero-button">Confira Nossos Produtos</Link>
     </div>
   );
 }

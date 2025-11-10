@@ -1,0 +1,28 @@
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25D366; /* Cor oficial do WhatsApp */
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px; /* Tamanho do ícone */
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  z-index: 1000; /* Garante que ele fique acima de outros elementos */
+  
+  /* Centraliza o ícone dentro do círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-icon {
+    margin: 0; /* Remove margens padrão se houver */
+}
