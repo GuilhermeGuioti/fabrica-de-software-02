@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 
-import heroBackgroundImage from '../../assets/ImageHero.png';
+import heroBackgroundImage from '../../assets/imageHero.png';
 
 import HeroContent from '../../components/HeroContent/HeroContent.jsx';
 import StatsBar from '../../components/StatsBar/StatsBar.jsx';
