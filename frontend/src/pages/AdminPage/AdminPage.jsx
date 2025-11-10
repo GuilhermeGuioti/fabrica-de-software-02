@@ -194,7 +194,7 @@ function ProductAdmin() {
             </Box>
           </Box>
           {loading ? ( <Box sx={{ display: 'flex', justifyContent: 'center', my: 5 }}> <CircularProgress /> </Box> ) : (
-            <TableContainer sx={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0, 0, 0, 0.07)', }} >
+            <TableContainer sx={{ borderRadius: '12px', overflowX: 'auto', boxShadow: '0 4px 15px rgba(0, 0, 0, 0.07)', }} >
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                   <TableRow sx={{ background: 'linear-gradient(90deg, #8B4513, #a0522d)' }} >
