@@ -6,8 +6,6 @@ import { useAuth } from '../../context/AuthContext.jsx';
 
 // Seus imports de ícones e CSS
 import './AuthPage.css';
-import { FaGoogle } from 'react-icons/fa';
-import { FaFacebookF } from 'react-icons/fa6';
 
 const AuthPage = () => {
   // 2. Criar os estados para guardar o que o usuário digita e controlar o loading
@@ -46,15 +44,7 @@ const AuthPage = () => {
           {/* 4. Conectar a função ao onSubmit do formulário */}
           <form onSubmit={handleLogin}>
             <h1>Entrar</h1>
-            <div className="social-icons">
-              <a href="#" className="icon">
-                <FaGoogle />
-              </a>
-              <a href="#" className="icon">
-                <FaFacebookF />
-              </a>
-            </div>
-            <span>ou use seu e-mail e senha</span>
+            <span>Digite seu e-mail e senha</span>
 
             {/* 5. Conectar os inputs ao estado (value e onChange) */}
             <input
@@ -84,7 +74,7 @@ const AuthPage = () => {
         <div className="toggle-container">
           <div className="toggle">
             <div className="toggle-panel toggle-right">
-              <h1>Olá, Amigo!</h1>
+              <h1>Área Administrativa</h1>
               <p>
                 Este é um sistema de acesso restrito. Por favor, utilize suas
                 credenciais para entrar.
