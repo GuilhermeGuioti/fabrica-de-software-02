@@ -39,9 +39,9 @@ function QuoteForm() {
     }
 
     // --- 3. SUAS CHAVES DO EMAILJS VÃO AQUI ---
-    const serviceID = 'SEU_SERVICE_ID';
-    const templateID = 'SEU_TEMPLATE_ID';
-    const publicKey = 'SUA_PUBLIC_KEY';
+    const serviceID = import.meta.env.VITE_SERVICE_ID;
+    const templateID = import.meta.env.VITE_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
     // Trava de segurança para não enviar sem as chaves
     if (
