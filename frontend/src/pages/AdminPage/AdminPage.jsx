@@ -257,7 +257,7 @@ function ProductAdmin() {
                 </Box>
                 
                 {/* O resto dos campos: SKU, Descrição, etc. */}
-                <TextField fullWidth label="SKU (Opcional)" name="sku" value={currentProduct.sku} onChange={handleChange} margin="normal" />
+                <TextField fullWidth label="SKU" name="sku" value={currentProduct.sku} onChange={handleChange} margin="normal" required/>
                 <TextField fullWidth label="Descrição Curta" name="descricao_curta" value={currentProduct.descricao_curta} onChange={handleChange} margin="normal" />
                 <TextField fullWidth label="Descrição Longa (Opcional)" name="descricao_longa" value={currentProduct.descricao_longa} onChange={handleChange} margin="normal" multiline rows={3} />
                 <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', sm: 'row' } }}>

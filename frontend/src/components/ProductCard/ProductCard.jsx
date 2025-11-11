@@ -2,6 +2,8 @@ import React from 'react';
 import './ProductCard.css';
 import { Link } from 'react-router-dom';
 
+import imageDefault from '../../assets/not-image.gif'
+
 const ProductCard = ({ imagemUrl, categoria, nome, dimensoes, preco, id }) => {
 
   const formatarPreco = (valor) => {
@@ -20,7 +22,7 @@ const ProductCard = ({ imagemUrl, categoria, nome, dimensoes, preco, id }) => {
   return (
     <div className="product-card">
       <div className="product-card__image-container">
-        <img src={imagemUrl} alt={nome} className="product-card__image" />
+        <img src={imagemUrl || imageDefault} alt={nome} className="product-card__image" />
         <span className="product-card__category-tag">{categoria}</span>
       </div>
       <div className="product-card__info">
