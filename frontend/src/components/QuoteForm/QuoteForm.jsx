@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser'; // 1. Importamos a biblioteca do EmailJS
+import emailjs from '@emailjs/browser';
+import { IMaskInput } from "react-imask";
 import './QuoteForm.css'; // O CSS continua o mesmo
 
 function QuoteForm() {
@@ -25,11 +26,22 @@ function QuoteForm() {
     e.preventDefault();
     setStatus('enviando');
 
+    const telefoneLimpo = formData.user_phone.replace(/\D/g, '');
+    if (telefoneLimpo.length < 11) {
+      setStatus('erro_telefone');
+      return;
+    }
+
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.user_email);
+    if (!emailValido) {
+      setStatus('erro_email');
+      return;
+    }
+
     // --- 3. SUAS CHAVES DO EMAILJS VÃO AQUI ---
     const serviceID = 'SEU_SERVICE_ID';
     const templateID = 'SEU_TEMPLATE_ID';
     const publicKey = 'SUA_PUBLIC_KEY';
-    // ------------------------------------------
 
     // Trava de segurança para não enviar sem as chaves
     if (
@@ -83,18 +95,22 @@ function QuoteForm() {
             type="email"
             name="user_email"
             placeholder="E-mail"
+            pattern="^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
             value={formData.user_email}
             onChange={handleChange}
             required
           />
         </div>
         <div className="form-row">
-          <input
+          <IMaskInput
+            mask="(00) 00000-0000"
             type="tel"
             name="user_phone"
             placeholder="Telefone / WhatsApp"
             value={formData.user_phone}
-            onChange={handleChange}
+            onAccept={(value) =>
+              setFormData((prevState) => ({ ...prevState, user_phone: value }))
+            }
             required
           />
           <select
@@ -145,6 +161,16 @@ function QuoteForm() {
           O formulário de contato não está ativo no momento. Por favor, tente
           mais tarde.
         </p>
+      )}
+      {status === 'erro_telefone' && (
+      <p className="submit-status error">
+        Por favor, digite um telefone completo antes de enviar.
+      </p>
+      )}
+      {status === 'erro_email' && (
+      <p className="submit-status error">
+        Por favor, insira um e-mail válido (ex: exemplo@dominio.com).
+      </p>
       )}
     </section>
   );
