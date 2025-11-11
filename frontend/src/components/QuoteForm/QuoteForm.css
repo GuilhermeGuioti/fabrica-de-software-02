@@ -1,8 +1,8 @@
 .quote-form-container {
   background-color: #fff;
   color: #333;
-  padding: 3rem 5%;
   font-family: 'Poppins', sans-serif;
+  padding-left: 20px ;
 }
 
 .form-header {

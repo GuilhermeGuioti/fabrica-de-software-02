@@ -88,22 +88,20 @@
 }
 
 .contact-map {
-  margin-inline: 15%;
+  display: flex;
   width: 100%;
-  padding-inline: 20px;
 }
 
 .contact-quote {
   width: 100%;
   display: flex;
-  margin-inline: 15%;
+  padding-block: 3rem;
 }
 
 .contact-quote-left {
   width: 40%;
   display: flex;
   justify-content: center;
-  padding-block: 3rem;
 }
 
 .arrow-right {

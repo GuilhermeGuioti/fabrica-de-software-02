@@ -3,8 +3,6 @@
   /* max-width: 900px; */
   height: 400px; /* Altura do mapa, ajuste conforme necessário */
   margin: 2rem auto; /* Centraliza o mapa na página */
-
-  /* Estilos para o visual da imagem */
   border-radius: 16px; /* Bordas arredondadas */
   overflow: hidden; /* Garante que o iframe dentro também tenha as bordas cortadas */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra suave para dar profundidade */
