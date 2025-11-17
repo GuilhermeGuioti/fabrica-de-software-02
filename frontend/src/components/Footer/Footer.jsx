@@ -150,7 +150,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>© 2024 Parkmoveis - Todos os direitos reservados</span>
+        <span>© 2025 Parkmoveis - Todos os direitos reservados</span>
       </div>
     </footer>
   );
